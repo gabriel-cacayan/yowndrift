@@ -1,9 +1,8 @@
 <div>
    
-    <div class="flex flex-col justify-center items-center space-y-5">
-        <input wire:model="search" type="text" placeholder="Search users..."/>
-        {{  $search }}
-    </div>
+   
+        <input class="mx-auto" wire:model="search" type="text" placeholder="Search users..."/>
+
     
     <div class="w-11/12 sm:w-4/5 mx-auto p-4 sm:p-6 md:p-8 lg:p-12">
         <h1 class="text-left font-bold text-5xl">All posts</h1>

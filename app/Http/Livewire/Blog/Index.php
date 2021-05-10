@@ -16,18 +16,19 @@ class Index extends Component
 
     public $posts;
 
-    public $search = 'society';
+    public $search;
 
     public function mount()
     {
-        // $this->posts = Post::all();
-        $this->posts = DB::table('users')
-            ->join('posts', 'users.id', '=', 'posts.user_id')
-            ->where('posts.category',  $this->search)
-            // ->orWhere('posts.title', $this->search)
-            ->get()->dd();
+        $this->search = '';
+        $this->posts = [];
     }
 
+    public function updatedSearch()
+    {
+        $this->posts = Post::where('category', 'like', '%' . $this->search . '%')
+            ->get();
+    }
     public function render()
     {
         return view('livewire.blog.index');
