@@ -50,12 +50,12 @@
                 </div>
             @endif
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex flex-col sm:flex-row items-end sm:items-center justify-end mt-4 space-y-5 sm:space-y-0">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-jet-button class="ml-4">
+                <x-jet-button class="sm:ml-4">
                     {{ __('Register') }}
                 </x-jet-button>
             </div>

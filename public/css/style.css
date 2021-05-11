@@ -1,16 +1,11 @@
-/* 
-    
-    NOTES: 
-    * Main btn color: bg-green-400 hover:bg-green-600 
-    
-    
-    
-*/
-
 body {
     font-family: 'Poppins', sans-serif !important;
 }
 
 .font-ibm {
     font-family: 'IBM Plex Mono', monospace;
+}
+
+#editor {
+    border: 1px #06B6D4 solid !important;
 }

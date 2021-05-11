@@ -10,14 +10,14 @@
                 <div class="my-5 w-full text-gray-600 md:w-3/5 flex flex-col space-y-5">
                     <div class="flex flex-col space-y-5">
                         <p class="text-sm">{{ $post->category }}</p>
-                        <a href="/post/{{ $post->post_id }}" class="text-xl text-gray-900 hover:text-indigo-700 font-bold hover:underline">
+                        <a href="/post/{{ $post->post_id }}" class="text-xl text-gray-900 hover:text-cyan-500 font-bold hover:underline">
                         {{ $post->title }}
                         </a>
                     </div>
-                    <div class="truncate">
+                    <div class="truncate max-h-24">
                         <p class="text-sm">{!!$post->body!!}</p>
                     </div>
-                    <a href="#" class="hover:underline hover:text-indigo-700">
+                    <a href="#" class="hover:underline hover:text-cyan-500">
                       Author: {{ $post->name }}
                     </a>
                 </div>

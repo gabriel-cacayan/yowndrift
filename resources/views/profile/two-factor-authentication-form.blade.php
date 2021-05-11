@@ -30,7 +30,7 @@
                     </p>
                 </div>
 
-                <div class="mt-4 dark:p-4 dark:w-56 dark:bg-white">
+                <div class="mt-4 dark:p-4 dark:w-56 dark:bg-gray-50">
                     {!! $this->user->twoFactorQrCodeSvg() !!}
                 </div>
             @endif
