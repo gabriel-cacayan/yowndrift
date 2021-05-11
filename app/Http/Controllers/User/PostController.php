@@ -20,11 +20,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        // $posts = DB::table('users')
-        //     ->join('posts', 'users.id', '=', 'posts.user_id')
-        //     ->get();
+        $posts = DB::table('users')
+            ->join('posts', 'users.id', '=', 'posts.user_id')
+            ->paginate(5);
 
-        return view('pages.post.index');
+        return view('pages.post.index', ['posts' => $posts]);
     }
 
     /**
@@ -56,7 +56,10 @@ class PostController extends Controller
         $post->updated_at = now();
         $post->save();
 
-        return redirect("/post")->with('success', 'Your post has been published');
+        $request->session()->flash('flash.banner', 'Your post has been published');
+        $request->session()->flash('flash.bannerStyle', 'success');
+
+        return redirect("/post");
     }
 
     /**
@@ -65,9 +68,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($post_id)
     {
-        //
+        $post = DB::table('users')
+            ->join('posts', 'users.id', '=', 'posts.user_id')
+            ->where('post_id', '=', $post_id)
+            ->first();
+        return view('pages.post.show', ['post' => $post]);
     }
 
     /**

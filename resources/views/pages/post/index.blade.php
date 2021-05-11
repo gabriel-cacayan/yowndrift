@@ -1,22 +1,39 @@
 <x-guest-user-layout>
 
-    @if (\Session::has('danger'))
-        <div id="element" class="container alert alert-danger alert-dismissible fade show" role="alert">
-        <h6>{{ \Session::get('danger') }}</h6>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
+    <div class="w-11/12 sm:w-4/5 mx-auto p-4 sm:p-6 lg:p-12">
+        <h1 class="text-left font-bold text-5xl mb-5"><span class="border-dashed border-b-4 border-gray-900">All posts</span></h1>
+        @forelse ($posts as $post)
+            <div class="flex flex-col md:flex-row justify-center items-start border-b border-gray-300">
+                <div class="my-5 w-full md:w-3/4">
+                    <p class="font-ibm text-sm">Published on {{ \Carbon\Carbon::parse ($post->created_at)->format('F d, Y') }}</p>
+                </div>
+                <div class="my-5 w-full text-gray-600 md:w-3/5 flex flex-col space-y-5">
+                    <div class="flex flex-col space-y-5">
+                        <p class="text-sm">{{ $post->category }}</p>
+                        <a href="/post/{{ $post->post_id }}" class="text-xl text-gray-900 hover:text-indigo-700 font-bold hover:underline">
+                        {{ $post->title }}
+                        </a>
+                    </div>
+                    <div class="truncate">
+                        <p class="text-sm">{!!$post->body!!}</p>
+                    </div>
+                    <a href="#" class="hover:underline hover:text-indigo-700">
+                      Author: {{ $post->name }}
+                    </a>
+                </div>
+            </div>
+        @empty
+           <div class="flex flex-row justify-center items-center p-12 space-x-5">
+                <img src="{{ asset('img/svg/typewritter.svg') }}" class="h-2/5 w-2/5 block mr-3" alt="">
+                <div>
+                    <h1 class="font-bold text-5xl">No posts has been published.</h1>
+                </div>
+           </div>
+        @endforelse
+    </div>
+    <div class="w-11/12 sm:w-4/5 mx-auto p-4 sm:p-6 md:p-8 lg:p-12">
+        @if (!empty($posts))
+         {{ $posts->links() }}
         @endif
-
-        @if (\Session::has('success'))
-        <div id="element" class="container alert alert-light alert-dismissible fade show" role="alert">
-        <h6><i class="mr-1 fas fa-check-circle text-success"></i>{{ \Session::get('success') }}</h6>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
-
-    @livewire('blog.index')
+    </div>
 </x-guest-user-layout>

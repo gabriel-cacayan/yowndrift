@@ -24,8 +24,10 @@
 
     </head>
     <body class="font-sans antialiased">
+        
         @livewire('navigation-menu')
-
+        <x-jet-banner />
+        
         <main>
             {{ $slot }}
         </main>
