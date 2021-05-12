@@ -6,6 +6,6 @@ body {
     font-family: 'IBM Plex Mono', monospace;
 }
 
-#editor {
-    border: 1px #06B6D4 solid !important;
+.searchOn {
+    display: block;
 }

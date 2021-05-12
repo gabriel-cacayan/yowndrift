@@ -14,8 +14,7 @@
             @csrf
 
             <div>
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" autofocus />
+                <input id="password" class="w-full placeholder-cyan-500 mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-300" type="password" name="password" placeholder="Password" required autocomplete="current-password" autofocus />
             </div>
 
             <div class="flex justify-end mt-4">

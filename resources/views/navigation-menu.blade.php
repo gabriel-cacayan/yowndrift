@@ -1,4 +1,12 @@
 <nav x-data="{ open: false }" class="bg-gray-50 border-b border-gray-100">
+    <!-- Search bar functions -->
+    <div class="hidden" id="search-container">
+        <div class="max-h-96 w-4/5 sm:w-1/2 m-auto rounded-md bg-gray-50 absolute inset-0 z-50">
+            @livewire('post.search-post')
+        </div>
+        <div class="h-screen w-full bg-gray-900 bg-opacity-25 absolute inset-0 z-40" id="search-overlay">
+        </div>
+    </div>
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -46,15 +54,18 @@
                     <x-jet-nav-link href="{{ route('post.create') }}" :active="request()->routeIs('post.create')">
                         {{ __('Write a post') }}
                     </x-jet-nav-link>
-                    @livewire('post.search-post')
                 </div>
             </div>
 
             <div class="hidden md:flex sm:items-center sm:ml-6">
 
                 <!-- Settings Dropdown -->
-                <div class="ml-3 relative">
-                {{-- I modified this navbar --}}
+                <div class="ml-3 relative flex items-center space-x-5">
+                    <x-jet-nav-link class="cursor-pointer" id="search-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                          </svg>
+                    </x-jet-nav-link>
                     @if (Route::has('login'))
                         @auth
                         <x-jet-dropdown align="right" width="48">
@@ -121,7 +132,12 @@
             </div>
 
             <!-- Hamburger -->
-            <div class="-mr-2 flex items-center md:hidden">
+            <div class="-mr-2 flex justify-around items-center md:hidden">
+                <x-jet-nav-link class="cursor-pointer" id="search-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                </x-jet-nav-link>
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />

@@ -1,4 +1,5 @@
 <x-guest-user-layout>
+   {{-- Landing page's content --}}
    <div class="py-6 sm:py-0 flex flex-row justify-center items-center">
         <img src="{{ asset('img/svg/landing-page-picture.svg') }}" class="hidden sm:block h-1/2 w-1/2" alt="Landing page's picture">
         <div class="text-center sm:text-left px-12">
