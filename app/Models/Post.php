@@ -12,9 +12,15 @@ class Post extends Model
     protected $table = 'posts';
     protected $primaryKey = 'post_id';
 
-
     public function users()
     {
         return $this->belongsTo(User::class);
     }
+
+    protected $fillable = [
+        'user_id',
+        'category',
+        'title',
+        'body',
+    ];
 }

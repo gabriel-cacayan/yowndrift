@@ -23,10 +23,10 @@
                 </div>
             </div>
         @empty
-           <div class="flex flex-row justify-center items-center p-12 space-x-5">
-                <img src="{{ asset('img/svg/typewritter.svg') }}" class="h-2/5 w-2/5 block mr-3" alt="">
+           <div class="flex flex-col sm:flex-row justify-center items-center p-12 space-x-5">
+                <img src="{{ asset('img/svg/typewritter.svg') }}" class="h-4/5 w-4/5 sm:h-2/5 sm:w-2/5 block sm:mr-3" alt="Girl typing">
                 <div>
-                    <h1 class="font-bold text-5xl">No posts has been published.</h1>
+                    <h1 class="font-bold mt-5 sm:mt-0 text-3xl sm:text-5xl">No posts has been published.</h1>
                 </div>
            </div>
         @endforelse

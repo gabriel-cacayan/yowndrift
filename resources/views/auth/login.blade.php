@@ -1,7 +1,6 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            {{-- <x-jet-authentication-card-logo /> --}}
             <h1 class="font-bold font-ibm text-2xl mb-5">Login to Yowndrift</h1>
         </x-slot>
 
@@ -38,7 +37,7 @@
                     </a>
                 @endif
 
-                <x-jet-button class="sm:ml-4">
+                <x-jet-button class="sm:ml-4 bg-green-700 hover:bg-green-500 active:bg-green-700 focus:border-green-700 focus:ring-green-300">
                     {{ __('Log in') }}
                 </x-jet-button>
             </div>

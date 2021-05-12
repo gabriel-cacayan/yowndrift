@@ -47,14 +47,23 @@ class PostController extends Controller
     {
         $validated = $request->validated();
 
-        $post = new Post;
-        $post->user_id = Auth::id();
-        $post->category = strtolower($request->input('category'));
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->created_at = now();
-        $post->updated_at = now();
-        $post->save();
+        // $post = new Post;
+        // $post->user_id = Auth::id();
+        // $post->category = strtolower($request->input('category'));
+        // $post->title = $request->input('title');
+        // $post->body = $request->input('body');
+        // $post->created_at = now();
+        // $post->updated_at = now();
+        // $post->save();
+
+        Post::create([
+            'user_id' => Auth::id(),
+            'category' => strtolower($request->input('category')),
+            'title' => $request->input('title'),
+            'body' => $request->input('body'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
 
         $request->session()->flash('flash.banner', 'Your post has been published');
         $request->session()->flash('flash.bannerStyle', 'success');
