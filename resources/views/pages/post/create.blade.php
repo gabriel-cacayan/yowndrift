@@ -3,7 +3,7 @@
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
         <div>
             <div class="text-center mb-5">
-                <h1 class="font-bold font-ibm text-lg mb-3">Write something good.</h1>
+                <h1 class="font-bold font-ibm text-lg mb-3">Write something worth reading</h1>
                 <h1 class="font-bold text-3xl">Create a post</h1>
             </div>
         </div>
@@ -13,10 +13,16 @@
 
             <form method="POST" action="{{ route('post.store') }}">
                 @csrf
-    
+                
                 <div>
                     <x-jet-label for="category" value="{{ __('Category') }}" />
-                    <x-jet-input id="category" class="block mt-1 w-full" type="text" name="category" :value="old('category')" required autofocus autocomplete="category" />
+                    <select class="block w-full mt-1 border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-200 focus:ring-opacity-50 rounded-md shadow-sm" type="select" name="category">
+                        <option selected>Choose a category</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Science">Science</option>
+                        <option value="Health">Health</option>
+                        <option value="Society">Society</option>
+                      </select>
                 </div>
     
                 <div class="mt-4">
@@ -26,7 +32,7 @@
     
                 <div class="mt-4">
                     <x-jet-label for="body" value="{{ __('Body') }}" />
-                    <textarea rows='10' class="block mt-1 w-full" id="editor" placeholder="Your text here" name="body" :value="old('body')"></textarea>
+                    <textarea rows="10" class="block mt-1 w-full" placeholder="Your text here" name="body" :value="old('body')" id="editor"></textarea>
                 </div>
     
     

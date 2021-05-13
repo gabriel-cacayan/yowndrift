@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StorePostRequest extends FormRequest
@@ -24,7 +25,7 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'category' => ['required', 'string'],
+            'category' => ['required', 'in:Technology,Science,Health,Society'],
             'title' => ['required', 'string', 'min:5'],
             'body' => ['required', 'string', 'min:50'],
         ];

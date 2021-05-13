@@ -22,7 +22,8 @@ class PostController extends Controller
     {
         $posts = DB::table('users')
             ->join('posts', 'users.id', '=', 'posts.user_id')
-            ->paginate(5);
+            ->orderBy('posts.created_at', 'desc')
+            ->paginate(10);
 
         return view('pages.post.index', ['posts' => $posts]);
     }
@@ -45,20 +46,12 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $validated = $request->validated();
 
-        // $post = new Post;
-        // $post->user_id = Auth::id();
-        // $post->category = strtolower($request->input('category'));
-        // $post->title = $request->input('title');
-        // $post->body = $request->input('body');
-        // $post->created_at = now();
-        // $post->updated_at = now();
-        // $post->save();
+        $validated = $request->validated();
 
         Post::create([
             'user_id' => Auth::id(),
-            'category' => strtolower($request->input('category')),
+            'category' => $request->input('category'),
             'title' => $request->input('title'),
             'body' => $request->input('body'),
             'created_at' => now(),

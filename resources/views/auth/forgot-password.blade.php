@@ -20,11 +20,11 @@
             @csrf
 
             <div class="block">
-                <input id="email" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-300" type="email" name="email" :value="old('email')" placeholder="Email" required autofocus />
+                <input id="email" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="email" name="email" :value="old('email')" placeholder="Email" required autofocus />
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-jet-button class="bg-green-700 hover:bg-green-500 active:bg-green-700 focus:border-green-700 focus:ring-green-300">
+            <div class="flex items-center justify-center mt-4">
+                <x-jet-button class="sm:flex sm:w-full justify-center bg-green-700 hover:bg-green-500 active:bg-green-700 focus:border-green-700 focus:ring-green-300">
                     {{ __('Email Password Reset Link') }}
                 </x-jet-button>
             </div>

@@ -19,14 +19,14 @@
                 @csrf
 
                 <div class="mt-4" x-show="! recovery">
-                    <input id="code" class="block w-full placeholder-cyan-500 mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-300" type="text" inputmode="numeric" name="code" placeholder="Code" autofocus x-ref="code" autocomplete="one-time-code" />
+                    <input id="code" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="text" inputmode="numeric" name="code" placeholder="Code" autofocus x-ref="code" autocomplete="one-time-code" />
                 </div>
 
                 <div class="mt-4" x-show="recovery">
-                    <input id="recovery_code" class="block w-full placeholder-cyan-500 mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-300" type="text" name="recovery_code" placeholder="Recovery Code" x-ref="recovery_code" autocomplete="one-time-code" />
+                    <input id="recovery_code" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="text" name="recovery_code" placeholder="Recovery Code" x-ref="recovery_code" autocomplete="one-time-code" />
                 </div>
 
-                <div class="flex items-center justify-end mt-4">
+                <div class="flex flex-col items-center justify-center mt-4 space-y-5">
                     <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer"
                                     x-show="! recovery"
                                     x-on:click="
@@ -45,7 +45,7 @@
                         {{ __('Use an authentication code') }}
                     </button>
 
-                    <x-jet-button class="ml-4">
+                    <x-jet-button class="sm:flex sm:w-full justify-center">
                         {{ __('Log in') }}
                     </x-jet-button>
                 </div>

@@ -13,19 +13,19 @@
             @csrf
 
             <div>
-                <input id="name" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-300" type="text" name="name" :value="old('name')" placeholder="Name" required autofocus autocomplete="name" />
+                <input id="name" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="text" name="name" :value="old('name')" placeholder="Name" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
-                <input id="email" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-300" type="email" name="email" :value="old('email')" placeholder="Email" required />
+                <input id="email" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="email" name="email" :value="old('email')" placeholder="Email" required />
             </div>
 
             <div class="mt-4">
-                <input id="password" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-300" type="password" name="password" placeholder="Password" required autocomplete="new-password" />
+                <input id="password" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="password" name="password" placeholder="Password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <input id="password_confirmation" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-300" type="password" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password" />
+                <input id="password_confirmation" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="password" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password" />
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -45,14 +45,15 @@
                 </div>
             @endif
 
-            <div class="flex flex-col sm:flex-row items-end sm:items-center justify-end mt-4 space-y-5 sm:space-y-0">
+            <div class="flex flex-col justify-center items-center mt-4 space-y-5">
+
+                <x-jet-button class="sm:flex sm:w-full justify-center bg-blue-700 hover:bg-blue-500">
+                    {{ __('Register') }}
+                </x-jet-button>
+
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
-
-                <x-jet-button class="sm:ml-4 bg-blue-700 hover:bg-blue-500">
-                    {{ __('Register') }}
-                </x-jet-button>
             </div>
         </form>
     </x-jet-authentication-card>

@@ -1,6 +1,6 @@
 <div class="p-8 sm:p-12">
         <input 
-        class="relative w-full placeholder-cyan-500 mt-1 block px-1 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-300" 
+        class="relative w-full mt-1 block px-1 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" 
         type="text" 
         placeholder="Title or Author"
         wire:model="search" 
