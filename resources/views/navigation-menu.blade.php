@@ -48,10 +48,10 @@
                             </x-jet-dropdown-link>
                         </x-slot>
                     </x-jet-dropdown>
-                    <x-jet-nav-link href="{{ route('post.index') }}" :active="request()->routeIs('post.index')">
+                    <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                         {{ __('Posts') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('post.create') }}" :active="request()->routeIs('post.create')">
+                    <x-jet-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
                         {{ __('Write a post') }}
                     </x-jet-nav-link>
                 </div>
@@ -95,7 +95,11 @@
                                 <div class="block px-4 py-2 text-xs text-gray-400">
                                     {{ __('Manage Account') }}
                                 </div>
-    
+                                
+                                <x-jet-dropdown-link href="{{ route('dashboard.index') }}">
+                                    {{ __('Dashboard') }}
+                                </x-jet-dropdown-link>
+
                                 <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                     {{ __('Profile') }}
                                 </x-jet-dropdown-link>
@@ -152,9 +156,6 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden md:hidden">
         @auth
             <div class="pt-2 pb-3 space-y-1">
-                {{-- <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
-                </x-jet-responsive-nav-link> --}}
                 <x-jet-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                     {{ __('Home') }}
                 </x-jet-responsive-nav-link>
@@ -183,10 +184,10 @@
                         </x-jet-dropdown-link>
                     </x-slot>
                 </x-jet-dropdown>
-                <x-jet-responsive-nav-link href="{{ route('post.index') }}" :active="request()->routeIs('post.index')">
+                <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                     {{ __('Posts') }}
                 </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link href="{{ route('post.create') }}" :active="request()->routeIs('post.create')">
+                <x-jet-responsive-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
                     {{ __('Write a post') }}
                 </x-jet-responsive-nav-link>
             </div>
@@ -208,6 +209,11 @@
 
                 <div class="mt-3 space-y-1">
                     <!-- Account Management -->
+
+                    <x-jet-responsive-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">
+                        {{ __('Dashboard') }}
+                     </x-jet-responsive-nav-link>
+
                     <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                         {{ __('Profile') }}
                     </x-jet-responsive-nav-link>
@@ -260,10 +266,10 @@
                             </x-jet-dropdown-link>
                         </x-slot>
                     </x-jet-dropdown>
-                    <x-jet-responsive-nav-link href="{{ route('post.index') }}" :active="request()->routeIs('post.index')">
+                    <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                         {{ __('Posts') }}
                     </x-jet-responsive-nav-link>
-                    <x-jet-responsive-nav-link href="{{ route('post.create') }}" :active="request()->routeIs('post.create')">
+                    <x-jet-responsive-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
                         {{ __('Write a post') }}
                     </x-jet-responsive-nav-link>
                     

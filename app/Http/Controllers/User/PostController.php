@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
-use Carbon\Carbon;
 use App\Models\Post;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -25,7 +23,7 @@ class PostController extends Controller
             ->orderBy('posts.created_at', 'desc')
             ->paginate(10);
 
-        return view('pages.post.index', ['posts' => $posts]);
+        return view('pages.posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -35,7 +33,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('pages.post.create');
+        return view('pages.posts.create');
     }
 
     /**
@@ -61,7 +59,7 @@ class PostController extends Controller
         $request->session()->flash('flash.banner', 'Your post has been published');
         $request->session()->flash('flash.bannerStyle', 'success');
 
-        return redirect("/post");
+        return redirect("/posts");
     }
 
     /**
@@ -76,7 +74,7 @@ class PostController extends Controller
             ->join('posts', 'users.id', '=', 'posts.user_id')
             ->where('post_id', '=', $post_id)
             ->first();
-        return view('pages.post.show', ['post' => $post]);
+        return view('pages.posts.show', ['post' => $post]);
     }
 
     /**

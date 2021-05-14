@@ -25,7 +25,7 @@ class PostFactory extends Factory
         return [
             'category' => 'technology',
             'title' => $this->faker->word(),
-            'body' => $this->faker->paragraph(1000),
+            'body' => $this->faker->paragraph(500),
         ];
     }
 }

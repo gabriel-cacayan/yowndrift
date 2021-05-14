@@ -1,6 +1,5 @@
 <x-guest-user-layout>
-
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <div class="min-h-screen max-h-auto flex flex-col sm:justify-center items-center p-6 bg-gray-100">
         <div>
             <div class="text-center mb-5">
                 <h1 class="font-bold font-ibm text-lg mb-3">Write something worth reading</h1>
@@ -11,7 +10,7 @@
         <div class="w-full sm:max-w-3xl mt-6 px-6 py-4 bg-gray-50 shadow-md overflow-hidden sm:rounded-lg">
             <x-jet-validation-errors class="mb-4" />
 
-            <form method="POST" action="{{ route('post.store') }}">
+            <form method="POST" action="{{ route('posts.store') }}">
                 @csrf
                 
                 <div>
@@ -32,7 +31,7 @@
     
                 <div class="mt-4">
                     <x-jet-label for="body" value="{{ __('Body') }}" />
-                    <textarea rows="10" class="block mt-1 w-full" placeholder="Your text here" name="body" :value="old('body')" id="editor"></textarea>
+                    <textarea rows="10" class="block mt-1 w-full" placeholder="Your text here" name="body" :value="old('body')" id="editor" type="text"></textarea>
                 </div>
     
     
@@ -44,7 +43,6 @@
                 </div>
             </form>
         </div>
-       
     </div>
 
     @push('scripts')

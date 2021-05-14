@@ -3,10 +3,10 @@
 
 # Clone: 
 
-* `git clone https://github.com/GabrielCode-Full/yowndrift.git`
+* `git clone https://github.com/GabrielCode-Full/yowndrift-web-app.git`
 * `cd yowndrift`
 * `composer update`
-* `npm install`
-* `npm run dev`
-* `php artisan migrate`
+* `npm install && npm run dev`
+*  add database to `.env` file
+* `php artisan migrate --seed`
 * `php artisan serve`

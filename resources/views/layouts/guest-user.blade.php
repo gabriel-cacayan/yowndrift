@@ -36,27 +36,10 @@
         @stack('modals')
 
         @livewireScripts
-
+        
         <script>
             ClassicEditor
-                .create( document.getElementById( 'editor' ), {
-                    toolbar: {
-                        items: [
-                            'heading', '|',
-                            'alignment', '|',
-                            'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
-                            'link', '|',
-                            'bulletedList', 'numberedList', 'todoList',
-                            '-', // break point
-                            'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor', '|',
-                            'code', 'codeBlock', '|',
-                            '|',
-                            'outdent', 'indent', '|',
-                            'blockQuote', '|',
-                            'undo', 'redo'
-                        ],
-                    }
-                }, )
+                .create( document.getElementById( 'editor' ))
                 .catch( error => {
                     console.log( error );
                 } );
