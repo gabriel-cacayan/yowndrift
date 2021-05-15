@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class DashboardController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +16,49 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('users')
-            ->join('posts', 'users.id', '=', 'posts.user_id')
-            ->where('id', 'LIKE', '%' . Auth::user()->id . '%')
-            ->get();
+        // $posts = DB::table('users')
+        //     ->join('posts', 'users.id', '=', 'posts.user_id')
+        //     ->where('id', 'LIKE', '%' . Auth::id() . '%')
+        //     ->get();
 
-        return view('pages.user.index', ['posts' => $posts]);
+        // return view('pages.users.index', ['posts' => $posts]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        dd($posts = DB::table('users')
+            ->join('posts', 'users.id', '=', 'posts.user_id')
+            ->where('id', 'LIKE', '%' . $id . '%')
+            ->get());
+
+        return view('pages.users.show', ['posts' => $posts]);
     }
 
     /**

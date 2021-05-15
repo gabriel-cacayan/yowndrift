@@ -51,7 +51,7 @@
 
         <script>
             ClassicEditor
-                .create( document.getElementById( 'editor' ))
+                .create( document.getElementById( 'body' ))
                 .catch( error => {
                     console.log( error );
                 } );

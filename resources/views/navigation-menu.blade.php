@@ -96,7 +96,7 @@
                                     {{ __('Manage Account') }}
                                 </div>
                                 
-                                <x-jet-dropdown-link href="{{ route('dashboard.index') }}">
+                                <x-jet-dropdown-link href="/user/dashboard/{{ Auth::user()->id }}">
                                     {{ __('Dashboard') }}
                                 </x-jet-dropdown-link>
 
@@ -210,7 +210,7 @@
                 <div class="mt-3 space-y-1">
                     <!-- Account Management -->
 
-                    <x-jet-responsive-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">
+                    <x-jet-responsive-nav-link href="/user/dashboard/{{ Auth::user()->id }}" :active="request()->routeIs('dashboard.show')">
                         {{ __('Dashboard') }}
                      </x-jet-responsive-nav-link>
 

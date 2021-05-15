@@ -1,4 +1,4 @@
-<x-guest-user-layout>
+<x-app-layout>
     <div class="w-11/12 sm:w-3/5 mx-auto p-4 sm:p-6 lg:p-12">
         <div class="flex flex-col justify-center items-start space-y-5">
             @if($post->category == 'Technology')
@@ -16,4 +16,4 @@
             <p>{!! $post->body !!}</p>
         </div>
     </div>
-</x-guest-user-layout>
+</x-app-layout>

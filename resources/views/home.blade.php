@@ -1,4 +1,4 @@
-<x-guest-user-layout>
+<x-app-layout>
    {{-- Landing page's content --}}
    <div class="py-6 sm:py-0 flex flex-row justify-center items-center">
         <img src="{{ asset('img/svg/landing-page-picture.svg') }}" class="hidden sm:block h-1/2 w-1/2" alt="Landing page's picture">
@@ -8,4 +8,4 @@
            <x-jet-button class="mt-5">Get started</x-jet-button>
         </div>
    </div>
-</x-guest-user-layout>
+</x-app-layout>

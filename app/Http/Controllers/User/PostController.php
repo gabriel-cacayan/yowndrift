@@ -74,6 +74,7 @@ class PostController extends Controller
             ->join('posts', 'users.id', '=', 'posts.user_id')
             ->where('post_id', '=', $post_id)
             ->first();
+
         return view('pages.posts.show', ['post' => $post]);
     }
 
@@ -83,9 +84,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($post_id)
     {
-        //
+        $post = Post::find($post_id);
+
+        return view('pages.posts.edit', ['post' => $post]);
     }
 
     /**
@@ -95,9 +98,21 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePostRequest $request, $post_id)
     {
-        //
+        $validated = $request->validated();
+
+        $post = Post::find($post_id);
+        $post->user_id = Auth::id();
+        $post->category = $request->input('category');
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        $request->session()->flash('flash.banner', 'Your post has been updated');
+        $request->session()->flash('flash.bannerStyle', 'success');
+
+        return redirect("/posts");
     }
 
     /**

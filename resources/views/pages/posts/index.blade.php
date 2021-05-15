@@ -1,4 +1,4 @@
-<x-guest-user-layout>
+<x-app-layout>
 
     <div class="w-11/12 sm:w-4/5 mx-auto p-4 sm:p-6 lg:p-12">
         <h1 class="text-left font-bold text-5xl mb-5"><span class="border-dashed border-b-4 border-gray-900">All posts</span></h1>
@@ -17,7 +17,7 @@
                     <div class="truncate max-h-24">
                         <p class="text-sm">{!!$post->body!!}</p>
                     </div>
-                    <a href="#" class="hover:underline hover:text-cyan-500">
+                    <a href="/user/dashboard/{{ $post->id }}" class="hover:underline hover:text-cyan-500">
                       Author: {{ $post->name }}
                     </a>
                 </div>
@@ -36,4 +36,4 @@
          {{ $posts->links() }}
         @endif
     </div>
-</x-guest-user-layout>
+</x-app-layout>
