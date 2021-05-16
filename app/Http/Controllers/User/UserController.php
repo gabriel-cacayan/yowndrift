@@ -16,12 +16,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        // $posts = DB::table('users')
-        //     ->join('posts', 'users.id', '=', 'posts.user_id')
-        //     ->where('id', 'LIKE', '%' . Auth::id() . '%')
-        //     ->get();
+        $posts = DB::table('users')
+            ->join('posts', 'users.id', '=', 'posts.user_id')
+            ->where('id', 'LIKE', '%' . Auth::id() . '%')
+            ->get();
 
-        // return view('pages.users.index', ['posts' => $posts]);
+        return view('pages.users.index', ['posts' => $posts]);
     }
 
     /**
@@ -53,12 +53,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        dd($posts = DB::table('users')
+        $post = DB::table('users')
             ->join('posts', 'users.id', '=', 'posts.user_id')
             ->where('id', 'LIKE', '%' . $id . '%')
-            ->get());
+            ->first();
 
-        return view('pages.users.show', ['posts' => $posts]);
+        return view('pages.users.show', ['post' => $post]);
     }
 
     /**

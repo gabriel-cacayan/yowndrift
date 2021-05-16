@@ -17,7 +17,7 @@
                     <div class="truncate max-h-24">
                         <p class="text-sm">{!!$post->body!!}</p>
                     </div>
-                    <a href="/user/dashboard/{{ $post->id }}" class="hover:underline hover:text-cyan-500">
+                    <a href="/users/{{ $post->id }}" class="hover:underline hover:text-cyan-500">
                       Author: {{ $post->name }}
                     </a>
                 </div>

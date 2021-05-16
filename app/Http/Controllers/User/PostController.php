@@ -11,6 +11,8 @@ use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -44,22 +46,7 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-
-        $validated = $request->validated();
-
-        Post::create([
-            'user_id' => Auth::id(),
-            'category' => $request->input('category'),
-            'title' => $request->input('title'),
-            'body' => $request->input('body'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-
-        $request->session()->flash('flash.banner', 'Your post has been published');
-        $request->session()->flash('flash.bannerStyle', 'success');
-
-        return redirect("/posts");
+        //
     }
 
     /**
@@ -112,7 +99,7 @@ class PostController extends Controller
         $request->session()->flash('flash.banner', 'Your post has been updated');
         $request->session()->flash('flash.bannerStyle', 'success');
 
-        return redirect("/posts");
+        return redirect('/users');
     }
 
     /**
@@ -121,8 +108,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $post_id)
     {
-        //
+        $post = Post::find($post_id);
+
+        $post->delete();
+
+        $request->session()->flash('flash.banner', 'Your post has been deleted');
+        $request->session()->flash('flash.bannerStyle', 'danger');
+
+        return redirect('/users');
     }
 }

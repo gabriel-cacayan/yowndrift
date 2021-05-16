@@ -20,8 +20,10 @@
              @if (!empty($search))
                 @forelse ($posts as $post)
                     <a href="/post/{{$post->post_id}}" class="flex flex-col list-item list-none px-5 py-2 hover:bg-gray-100">
-                        <p class="font-bold">{{ $post->title }}</p>
-                        <p class="text-sm text-gray-600">{{ $post->name }}</p>
+                        <p class="mb-2 text-cyan-500">{{ $post->title }}</p>
+                        <p class="text-sm text-gray-600 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>{{ $post->name }}</p>
                     </a>
                 @empty
                     <a class="list-item list-none px-5 py-2">No results found</a>
