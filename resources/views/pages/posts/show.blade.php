@@ -12,7 +12,7 @@
             @endif
             <p class="font-ibm text-sm text-gray-600">Published on {{ \Carbon\Carbon::parse ($post->created_at)->format('F d, Y') }} by <a href="/users/{{ $post->id }}" class="hover:underline">{{ $post->name }}</a></p>
             <p>{{ $post->category }}</p>
-            <h1 class="text-3xl md:text-4xl font-bold">{{ $post->title }}</h1>
+            <h1 class="font-bold">{{ $post->title }}</h1>
             <p>{!! $post->body !!}</p>
         </div>
     </div>

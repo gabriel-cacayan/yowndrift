@@ -10,7 +10,7 @@ use App\Http\Controllers\User\UserController;
 Route::view('/', 'home')->name('home');
 
 
-// 'verified', 'admin'
+// 'verified'
 Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::resource('/users', UserController::class)->only(['index']);

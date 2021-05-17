@@ -21,14 +21,13 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
         <script src="{{ asset('js/search.js') }}" defer></script>
-        @stack('scripts')
+        {{-- @stack('scripts') --}}
 
     </head>
     <body class="font-sans antialiased">
 
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')
-            <x-jet-banner />
             
             <!-- Page Heading -->
             @if (isset($header))
@@ -38,7 +37,8 @@
                     </div>
                 </header>
             @endif
-
+            
+            <x-jet-banner />
             <!-- Page Content -->
             <main class="bg-gray-100">
                 {{ $slot }}
@@ -48,13 +48,12 @@
         @stack('modals')
 
         @livewireScripts
-
-        <script>
-            ClassicEditor
-                .create( document.getElementById( 'body' ))
-                .catch( error => {
-                    console.log( error );
-                } );
-        </script>
+    
+        {{-- <script>
+            Livewire.on('initializeCkEditor', function () {
+                ClassicEditor.create(document.getElementById('body'))
+                .then(editor => { thisEditor = editor });
+            }); 
+        </script> --}}
     </body>
 </html>

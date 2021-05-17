@@ -17,7 +17,7 @@ class Create extends Component
     {
         return [
             'category' => ['required', 'in:Technology,Science,Health,Society'],
-            'title' => ['required', 'string', 'min:5'],
+            'title' => ['required', 'string', 'min:10'],
             'body' => ['required', 'string', 'min:50'],
         ];
     }
@@ -26,7 +26,12 @@ class Create extends Component
     {
         $this->validateOnly($propertyName);
     }
-    
+
+    // public function dehydrate()
+    // {
+    //     $this->emit('initializeCkEditor');
+    // }
+
     public function createPost(Request $request)
     {
         $this->validate();

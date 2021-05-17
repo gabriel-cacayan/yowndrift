@@ -20,8 +20,10 @@ class PostController extends Controller
      */
     public function index()
     {
+
         $posts = DB::table('users')
             ->join('posts', 'users.id', '=', 'posts.user_id')
+            ->where('category', 'LIKE', '%' . request()->search . '%')
             ->orderBy('posts.created_at', 'desc')
             ->paginate(10);
 
