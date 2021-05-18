@@ -68,9 +68,16 @@
                     <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                         {{ __('Posts') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
-                        {{ __('Write a post') }}
-                    </x-jet-nav-link>
+                    @auth
+                        <x-jet-nav-link>
+                            @livewire('posts.create')
+                        </x-jet-nav-link>    
+                    @endauth
+                    @guest
+                        <x-jet-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
+                            {{ __('Write a post') }}
+                        </x-jet-nav-link>
+                    @endguest
                 </div>
             </div>
 
@@ -219,8 +226,8 @@
                 <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                     {{ __('Posts') }}
                 </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
-                    {{ __('Write a post') }}
+                <x-jet-responsive-nav-link>
+                    @livewire('posts.create')
                 </x-jet-responsive-nav-link>
             </div>
 
@@ -284,26 +291,48 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-jet-dropdown-link>
-                                Technology
-                            </x-jet-dropdown-link>
-                            <x-jet-dropdown-link>
-                                Health
-                            </x-jet-dropdown-link>
-                            <x-jet-dropdown-link>
-                                Science
-                            </x-jet-dropdown-link>
-                            <x-jet-dropdown-link>
-                                Society
-                            </x-jet-dropdown-link>
+                            <form action="{{ route('posts.index') }}">
+                                <input type="hidden" value="technology" name="search">
+                                <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
+                                    Technology
+                                </button>
+                            </form>
+                     
+                            <form action="{{ route('posts.index') }}">
+                                <input type="hidden" value="health" name="search">
+                                <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
+                                    Health
+                                </button>
+                            </form>
+                       
+                            <form action="{{ route('posts.index') }}">
+                                <input type="hidden" value="science" name="search">
+                                <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
+                                    Science
+                                </button>
+                            </form>
+                       
+                            <form action="{{ route('posts.index') }}">
+                                <input type="hidden" value="society" name="search">
+                                <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
+                                    Society
+                                </button>
+                            </form>
                         </x-slot>
                     </x-jet-dropdown>
                     <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                         {{ __('Posts') }}
                     </x-jet-responsive-nav-link>
-                    <x-jet-responsive-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
+                   @auth
+                    <x-jet-responsive-nav-link>
+                        @livewire('posts.create')
+                    </x-jet-responsive-nav-link>    
+                   @endauth
+                   @guest
+                    <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
                         {{ __('Write a post') }}
-                    </x-jet-responsive-nav-link>
+                        </x-jet-responsive-nav-link>
+                   @endguest
                     
                 </div>
 

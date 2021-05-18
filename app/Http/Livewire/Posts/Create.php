@@ -4,14 +4,19 @@ namespace App\Http\Livewire\Posts;
 
 use App\Models\Post;
 use Livewire\Component;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class Create extends Component
 {
+    public $confirmingUserPost = false;
     public $category;
     public $title;
     public $body;
+
+    public function openModal()
+    {
+        $this->confirmingUserPost = true;
+    }
 
     protected function rules()
     {
@@ -32,7 +37,7 @@ class Create extends Component
     //     $this->emit('initializeCkEditor');
     // }
 
-    public function createPost(Request $request)
+    public function createPost()
     {
         $this->validate();
 
@@ -47,10 +52,10 @@ class Create extends Component
             'updated_at' => now()
         ]);
 
-        $request->session()->flash('flash.banner', 'Your post has been published');
-        $request->session()->flash('flash.bannerStyle', 'success');
+        session()->flash('flash.banner', 'Your post has been published');
+        session()->flash('flash.bannerStyle', 'success');
 
-        return redirect()->to('/posts');
+        return redirect('/posts');
     }
 
     public function render()

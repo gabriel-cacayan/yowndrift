@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -21,13 +20,7 @@ class PostController extends Controller
     public function index()
     {
 
-        $posts = DB::table('users')
-            ->join('posts', 'users.id', '=', 'posts.user_id')
-            ->where('category', 'LIKE', '%' . request()->search . '%')
-            ->orderBy('posts.created_at', 'desc')
-            ->paginate(10);
-
-        return view('pages.posts.index', ['posts' => $posts]);
+        return view('pages.posts.index');
     }
 
     /**
@@ -110,15 +103,8 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $post_id)
+    public function destroy($id)
     {
-        $post = Post::find($post_id);
-
-        $post->delete();
-
-        $request->session()->flash('flash.banner', 'Your post has been deleted');
-        $request->session()->flash('flash.bannerStyle', 'danger');
-
-        return redirect('/users');
+        //
     }
 }

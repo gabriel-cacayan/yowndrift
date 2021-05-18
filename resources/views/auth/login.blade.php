@@ -36,11 +36,16 @@
                     {{ __('Log in') }}
                 </x-jet-button>
 
-                  @if (Route::has('password.request'))
+                @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
+
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+                    {{ __('Create an account') }}
+                </a>
+
             </div>
         </form>
     </x-jet-authentication-card>
