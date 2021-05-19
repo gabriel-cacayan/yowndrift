@@ -32,10 +32,10 @@ class Create extends Component
         $this->validateOnly($propertyName);
     }
 
-    // public function dehydrate()
-    // {
-    //     $this->emit('initializeCkEditor');
-    // }
+    public function dehydrate()
+    {
+        $this->emit('initializeCkEditor');
+    }
 
     public function createPost()
     {

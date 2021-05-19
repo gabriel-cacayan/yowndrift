@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -16,10 +16,6 @@ class UserController extends Controller
      */
     public function index()
     {
-        // $posts = DB::table('users')
-        //     ->join('posts', 'users.id', '=', 'posts.user_id')
-        //     ->where('id', 'LIKE', '%' . Auth::id() . '%')
-        //     ->get();
 
         return view('pages.users.index');
     }
@@ -53,12 +49,18 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $post = DB::table('users')
+        $user = User::find($id);
+
+        $posts = DB::table('users')
             ->join('posts', 'users.id', '=', 'posts.user_id')
             ->where('id', 'LIKE', '%' . $id . '%')
-            ->first();
+            ->orderBy('posts.created_at', 'desc')
+            ->get();
 
-        return view('pages.users.show', ['post' => $post]);
+        return view('pages.users.show', [
+            'user' => $user,
+            'posts' => $posts
+        ]);
     }
 
     /**

@@ -105,7 +105,7 @@
                                 <p>&lt;p&gt;This is a paragraph&lt;/p&gt;</p>
                             </div>
                         </div> --}}
-                        <textarea name="body" rows="10" class="block w-full mt-1 border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-200 focus:ring-opacity-50 rounded-md shadow-sm" wire:model="body" placeholder="Once upon a time...">
+                        <textarea name="body" rows="10" class="block w-full mt-1 border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-200 focus:ring-opacity-50 rounded-md shadow-sm" wire:model="body" placeholder="Your text here" id="body">
                         </textarea>
                         <x-jet-input-error for="body" class="mt-2"/>
                    </div>
@@ -134,4 +134,9 @@
             </x-slot>
         </x-jet-dialog-modal>
 
+        @push('scripts')
+            <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+        @endpush
+
 </div>
+

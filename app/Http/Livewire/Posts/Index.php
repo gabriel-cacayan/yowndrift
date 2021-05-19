@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Posts;
 
+use App\Models\Post;
+use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
@@ -19,11 +21,11 @@ class Index extends Component
         return view('livewire.posts.index', [
             'posts' => DB::table('users')
                 ->join('posts', 'users.id', '=', 'posts.user_id')
-                ->where('posts.category', 'LIKE', '%' . $this->search . '%')
-                ->orWhere('posts.title', 'LIKE', '%' . $this->search . '%')
-                ->orWhere('users.name', 'LIKE', '%' . $this->search . '%')
+                ->where('posts.category', 'like', '%' . $this->search . '%')
+                ->orWhere('posts.title', 'like', '%' . $this->search . '%')
+                ->orWhere('users.name', 'like', '%' . $this->search . '%')
                 ->orderBy('posts.created_at', 'desc')
-                ->paginate(20),
+                ->simplePaginate(10),
         ]);
     }
 }

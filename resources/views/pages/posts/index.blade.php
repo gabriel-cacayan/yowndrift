@@ -1,5 +1,3 @@
 <x-app-layout>
-    
-    @livewire('posts.index')
-    
+        @livewire('posts.index')  
 </x-app-layout>

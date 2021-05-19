@@ -1,16 +1,16 @@
-<div>
+<div>   
    <div class="bg-gray-50">
         <div class="w-11/12 sm:w-4/5 mx-auto p-4 sm:p-6 lg:p-12">
            <div class="flex flex-col md:flex-row justify-center items-start">
-                <h1 class="text-left font-bold text-5xl mb-5 md:w-3/4"><span class="border-dashed border-b-4 border-gray-900">All posts</span></h1>
+                <h1 class="text-left font-bold text-5xl mb-5 md:w-3/4"><span class="border-dashed border-b-4 border-gray-900 text-cyan-500">All posts</span></h1>
                 <x-jet-input wire:model="search" type="search" placeholder="Search posts by category, title, or name" class="mt-5 w-full" />
            </div>
             @forelse ($posts as $post)
                 <div class="flex flex-col md:flex-row justify-center items-start border-b border-gray-300">
-                    <div class="my-5 w-full md:w-3/4">
+                    <div class="my-5 w-full md:w-3/4 text-gray-500">
                         <p class="font-ibm text-sm">Published on {{ \Carbon\Carbon::parse ($post->created_at)->format('F d, Y') }}</p>
                     </div>
-                    <div class="my-5 w-full text-gray-600 md:w-3/5 flex flex-col space-y-5">
+                    <div class="my-5 w-full text-gray-500 md:w-3/5 flex flex-col space-y-5">
                         <div class="flex flex-col space-y-5">
                             <p class="text-sm">{{ $post->category }}</p>
                             <a href="/posts/{{ $post->post_id }}" class="text-xl text-gray-900 hover:text-cyan-500 font-bold hover:underline">

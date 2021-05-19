@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Post;
 
-use App\Models\Post;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 

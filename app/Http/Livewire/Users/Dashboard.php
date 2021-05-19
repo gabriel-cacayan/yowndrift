@@ -27,6 +27,7 @@ class Dashboard extends Component
             'posts' => DB::table('users')
                 ->join('posts', 'users.id', '=', 'posts.user_id')
                 ->where('id', 'LIKE', '%' . Auth::id() . '%')
+                ->orderBy('posts.created_at', 'desc')
                 ->get(),
         ]);
     }
