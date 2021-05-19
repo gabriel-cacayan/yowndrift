@@ -21,7 +21,7 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
         <script src="{{ asset('js/search.js') }}" defer></script>
-        @stack('scripts')
+        <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
 
     </head>
     <body class="font-sans antialiased">
