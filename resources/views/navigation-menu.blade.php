@@ -70,8 +70,8 @@
                     </x-jet-nav-link>
                     @auth
                         <x-jet-nav-link>
-                            @livewire('posts.create')
-                        </x-jet-nav-link>    
+                            @livewire('pages.posts.create')
+                        </x-jet-nav-link>  
                     @endauth
                     @guest
                         <x-jet-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
@@ -227,7 +227,7 @@
                     {{ __('Posts') }}
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link>
-                    @livewire('posts.create')
+                    @livewire('pages.posts.create')
                 </x-jet-responsive-nav-link>
             </div>
 
@@ -325,7 +325,7 @@
                     </x-jet-responsive-nav-link>
                    @auth
                     <x-jet-responsive-nav-link>
-                        @livewire('posts.create')
+                        @livewire('pages.posts.create')
                     </x-jet-responsive-nav-link>    
                    @endauth
                    @guest

@@ -49,12 +49,10 @@
         @stack('modals')
 
         @livewireScripts
-    
-        <script>
-            Livewire.on('initializeCkEditor', function () {
-                ClassicEditor.create(document.getElementById('body'))
-                .then(editor => { thisEditor = editor });
-            }); 
-        </script>
+        
+        <script>           
+            ClassicEditor.create(document.getElementById('body'))
+            .then(editor => { thisEditor = editor });
+        </script> 
     </body>
 </html>

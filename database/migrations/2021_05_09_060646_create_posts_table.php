@@ -17,12 +17,12 @@ class CreatePostsTable extends Migration
             $table->id('post_id');
             $table->foreignId('user_id')
                 ->constrained('users')
-                ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('category', 50);
             $table->string('title', 255);
-            $table->longText('body');
-            $table->timestamps();
+            $table->text('body');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 
