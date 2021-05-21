@@ -44,6 +44,7 @@
             <main class="bg-gray-100">
                 {{ $slot }}
             </main>
+            @include('footer')
         </div>
 
         @stack('modals')
@@ -51,7 +52,18 @@
         @livewireScripts
         
         <script>           
-            ClassicEditor.create(document.getElementById('body'))
+            ClassicEditor.create(document.getElementById('body'), {
+                toolbar: {
+                items: [
+                    'heading', '|',
+                    'bold', 'italic','|',
+                    'link', '|',
+                    'blockQuote', '|',
+                    'undo', 'redo'
+                ],
+                shouldNotGroupWhenFull: true
+            }
+            })
             .then(editor => { thisEditor = editor });
         </script> 
     </body>

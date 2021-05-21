@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Post;
-use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PostFactory extends Factory
@@ -23,9 +23,9 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'category' => 'technology',
-            'title' => $this->faker->word(),
-            'body' => $this->faker->paragraph(500),
+            'category' => Arr::random(['Technology', 'Society', 'Health', 'Science']),
+            'title' => $this->faker->realText(30, 2),
+            'body' => $this->faker->realText(2000, 5),
         ];
     }
 }

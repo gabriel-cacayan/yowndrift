@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\PostController;
 use App\Http\Controllers\User\UserController;
 
 
 
 
-Route::view('/', 'home')->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 // 'verified'

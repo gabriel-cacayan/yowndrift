@@ -29,8 +29,6 @@ class PostController extends Controller
      */
     public function create()
     {
-        $confirmingUserPost = false;
-        
         return view('pages.posts.create');
     }
 
@@ -42,15 +40,15 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $this->validated();
+        $request->validated();
 
         // Execution doesn't reach here if validation fails.
 
         Post::create([
             'user_id' => Auth::id(),
-            'category' => $this->category,
-            'title' => $this->title,
-            'body' => $this->body,
+            'category' => $request->input('category'),
+            'title' => $request->input('title'),
+            'body' => $request->input('body'),
         ]);
 
         $request->session()->flash('flash.banner', 'Your post has been published');
@@ -97,7 +95,7 @@ class PostController extends Controller
      */
     public function update(StorePostRequest $request, $post_id)
     {
-        $validated = $request->validated();
+        $request->validated();
 
         $post = Post::find($post_id);
         $post->user_id = Auth::id();

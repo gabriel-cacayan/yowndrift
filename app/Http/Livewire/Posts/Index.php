@@ -25,7 +25,7 @@ class Index extends Component
                 ->orWhere('posts.title', 'like', '%' . $this->search . '%')
                 ->orWhere('users.name', 'like', '%' . $this->search . '%')
                 ->orderBy('posts.created_at', 'desc')
-                ->simplePaginate(10),
+                ->paginate(10),
         ]);
     }
 }

@@ -65,12 +65,12 @@
                            
                         </x-slot>
                     </x-jet-dropdown>
-                    <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                    <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts./[^create]/')">
                         {{ __('Posts') }}
                     </x-jet-nav-link>
                     @auth
-                        <x-jet-nav-link>
-                            @livewire('pages.posts.create')
+                        <x-jet-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
+                            {{ __('Write a post') }}
                         </x-jet-nav-link>  
                     @endauth
                     @guest
@@ -223,11 +223,11 @@
                         </form>
                     </x-slot>
                 </x-jet-dropdown>
-                <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts./[^create]/')">
                     {{ __('Posts') }}
                 </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link>
-                    @livewire('pages.posts.create')
+                <x-jet-responsive-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
+                    {{ __('Write a post') }}
                 </x-jet-responsive-nav-link>
             </div>
 
@@ -320,17 +320,17 @@
                             </form>
                         </x-slot>
                     </x-jet-dropdown>
-                    <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                    <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts./[^create]/')">
                         {{ __('Posts') }}
                     </x-jet-responsive-nav-link>
                    @auth
-                    <x-jet-responsive-nav-link>
-                        @livewire('pages.posts.create')
-                    </x-jet-responsive-nav-link>    
+                        <x-jet-responsive-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
+                            {{ __('Write a post') }}
+                        </x-jet-responsive-nav-link>    
                    @endauth
                    @guest
-                    <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
-                        {{ __('Write a post') }}
+                        <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
+                            {{ __('Write a post') }}
                         </x-jet-responsive-nav-link>
                    @endguest
                     
