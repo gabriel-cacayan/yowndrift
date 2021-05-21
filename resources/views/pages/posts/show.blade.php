@@ -1,6 +1,6 @@
 <x-app-layout>
-    <div class="bg-gray-50">
-        <div class="w-11/12 sm:w-3/5 mx-auto p-4 sm:p-6 lg:p-12">
+    <div class="bg-gray-100">
+        <div class="w-11/12 sm:w-3/5 mx-auto p-4 sm:p-6 lg:p-12 bg-gray-50">
             <div class="flex flex-col justify-center items-start space-y-5">
                 @if($post->category == 'Technology')
                     <img src="{{ asset('img/svg/technology.svg') }}" class="h-full w-full mx-auto block bg-gray-900" alt="Technology's default picture">
@@ -17,5 +17,11 @@
                  <p>{!!$post->body!!}</p>
             </div>
         </div>
+
+        <form action="{{ route('comments.store') }}" method="POST">
+            @csrf
+            <textarea name="body" id="body" cols="30" rows="10"></textarea>
+            <x-jet-button type="submit">Post</x-jet-button>
+        </form>
     </div>
 </x-app-layout>

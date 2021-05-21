@@ -70,6 +70,14 @@ class PostController extends Controller
             ->where('post_id', '=', $post_id)
             ->first();
 
+        // $comments = DB::table('users')
+        //     ->join('posts', 'users.id', '=', 'posts.user_id')
+        //     ->join('comments', 'users.id', '=', 'comments.user_id')
+        //     ->where('post_id', '=', $post_id)
+        //     ->get();
+
+        // dd($comments);
+
         return view('pages.posts.show', ['post' => $post]);
     }
 

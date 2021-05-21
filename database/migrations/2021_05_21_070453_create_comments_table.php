@@ -18,12 +18,12 @@ class CreateCommentsTable extends Migration
             $table->foreignId('user_id')
                 ->constrained('users')
                 ->onDelete('cascade');
-            // $table->foreignId('post_id')
-            //     ->constrained()
-            //     ->onDelete('cascade');
+            $table->foreignId('post_id');
             $table->text('body');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
+
+            $table->foreign('post_id')->references('post_id')->on('posts');
         });
     }
 
