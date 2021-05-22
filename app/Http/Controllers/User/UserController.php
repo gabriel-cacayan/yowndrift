@@ -53,7 +53,7 @@ class UserController extends Controller
 
         $posts = DB::table('users')
             ->join('posts', 'users.id', '=', 'posts.user_id')
-            ->where('id', 'LIKE', '%' . $id . '%')
+            ->where('users.id', 'like', '%' . $id . '%')
             ->orderBy('posts.created_at', 'desc')
             ->get();
 

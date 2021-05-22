@@ -9,8 +9,8 @@ class Comment extends Model
 {
     use HasFactory;
 
-    protected $table = 'comments';
-    protected $primaryKey = 'comment_id';
+    // protected $table = 'comments';
+    // protected $primaryKey = 'comment_id';
 
     public function users()
     {

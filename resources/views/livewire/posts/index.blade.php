@@ -12,14 +12,14 @@
                     <div class="px-4 my-5 w-full text-gray-500 md:w-3/5 flex flex-col space-y-5">
                         <div class="flex flex-col space-y-5">
                             <p class="text-sm">{{ $post->category }}</p>
-                            <a href="/posts/{{ $post->post_id }}" class="text-xl text-gray-900 hover:text-cyan-500 font-bold hover:underline">
+                            <a href="/posts/{{ $post->id }}" class="text-xl text-gray-900 hover:text-cyan-500 font-bold hover:underline">
                             {{ $post->title }}
                             </a>
                         </div>
                         <div class="truncate max-h-24">
                             <p class="text-sm">{!!$post->body!!}</p>
                         </div>
-                        <a href="/users/{{ $post->id }}" class="hover:underline hover:text-cyan-500">
+                        <a href="/users/{{ $post->user_id }}" class="hover:underline hover:text-cyan-500">
                           Posted by {{ $post->name }}
                         </a>
                     </div>

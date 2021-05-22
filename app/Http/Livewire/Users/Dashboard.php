@@ -26,7 +26,7 @@ class Dashboard extends Component
         return view('livewire.users.dashboard', [
             'posts' => DB::table('users')
                 ->join('posts', 'users.id', '=', 'posts.user_id')
-                ->where('id', 'LIKE', '%' . Auth::id() . '%')
+                ->where('users.id', 'like', '%' . Auth::id() . '%')
                 ->orderBy('posts.created_at', 'desc')
                 ->get(),
         ]);

@@ -9,12 +9,17 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $table = 'posts';
-    protected $primaryKey = 'post_id';
+    // protected $table = 'posts';
+    // protected $primaryKey = 'post_id';
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
     protected $fillable = [

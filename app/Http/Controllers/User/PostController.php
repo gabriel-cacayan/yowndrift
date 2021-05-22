@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Post;
+use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -63,22 +65,27 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($post_id)
+    public function show($id)
     {
         $post = DB::table('users')
             ->join('posts', 'users.id', '=', 'posts.user_id')
-            ->where('post_id', '=', $post_id)
+            ->where('posts.id', '=', $id)
             ->first();
 
-        // $comments = DB::table('users')
-        //     ->join('posts', 'users.id', '=', 'posts.user_id')
-        //     ->join('comments', 'users.id', '=', 'comments.user_id')
-        //     ->where('post_id', '=', $post_id)
+        $userComments = User::with(['posts', 'comments'])
+            ->where('users.id', 'like', '%' . Auth::id() . '%')
+            ->get();
+
+        // $comments = User::with('comments')
+        //     ->where('id', '=', $id)
         //     ->get();
 
         // dd($comments);
 
-        return view('pages.posts.show', ['post' => $post]);
+        return view('pages.posts.show', [
+            'post' => $post,
+            'userComments' => $userComments
+        ]);
     }
 
     /**
@@ -87,9 +94,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($post_id)
+    public function edit($id)
     {
-        $post = Post::find($post_id);
+        $post = Post::find($id);
 
         return view('pages.posts.edit', ['post' => $post]);
     }
@@ -101,11 +108,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StorePostRequest $request, $post_id)
+    public function update(StorePostRequest $request, $id)
     {
         $request->validated();
 
-        $post = Post::find($post_id);
+        $post = Post::find($id);
         $post->user_id = Auth::id();
         $post->category = $request->input('category');
         $post->title = $request->input('title');

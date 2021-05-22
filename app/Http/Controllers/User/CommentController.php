@@ -37,16 +37,21 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'body' => ['required', 'max:500'],
+        ]);
+
         Comment::create([
             'user_id' => Auth::id(),
-            'post_id' => 19,
+            'post_id' => $request->input('post_id'),
             'body' => $request->input('body'),
         ]);
 
-        $request->session()->flash('flash.banner', 'Your post has been published');
+        $request->session()->flash('flash.banner', 'Your comment has been posted');
         $request->session()->flash('flash.bannerStyle', 'success');
 
-        return redirect('/posts');
+        return back();
     }
 
     /**
