@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Post;
-use App\Models\User;
-use App\Models\Comment;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +10,6 @@ use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
-
 
     /**
      * Display a listing of the resource.
@@ -72,19 +69,14 @@ class PostController extends Controller
             ->where('posts.id', '=', $id)
             ->first();
 
-        $userComments = User::with(['posts', 'comments'])
-            ->where('users.id', 'like', '%' . Auth::id() . '%')
+        $comments = DB::table('users')
+            ->join('comments', 'users.id', '=', 'comments.user_id')
+            ->where('post_id', '=', $id)
             ->get();
-
-        // $comments = User::with('comments')
-        //     ->where('id', '=', $id)
-        //     ->get();
-
-        // dd($comments);
 
         return view('pages.posts.show', [
             'post' => $post,
-            'userComments' => $userComments
+            'comments' => $comments
         ]);
     }
 

@@ -13,7 +13,7 @@
            @endguest
         </div>
    </div>
-   {{-- posts --}}
+   {{-- Showing 5 latest posts --}}
    <div class="w-11/12 sm:w-4/5 my-5 mx-auto p-4 sm:p-6 lg:p-12">
       <h1 class="text-left font-bold text-4xl sm:text-6xl mb-5 md:w-3/4"><span class="border-dashed border-b-4 border-gray-900">Latest posts</span></h1>
        @forelse ($posts as $post)
@@ -44,6 +44,6 @@
                </div>
           </div>
        @endforelse
-         <a href="{{ route('login') }}" class="text-center block w-full sm:w-auto sm:inline-flex items-center mt-5 px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-gray-50 uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">Find more posts</a>
+         <a href="{{ route('posts.index') }}" class="text-center block w-full sm:w-auto sm:inline-flex items-center mt-5 px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-gray-50 uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">Find more posts</a>
    </div>
 </x-app-layout>

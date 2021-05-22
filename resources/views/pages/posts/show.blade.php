@@ -17,16 +17,14 @@
                  <p>{!!$post->body!!}</p>
             </div>
         </div>
-        <h3 class="w-11/12 sm:w-3/5 mx-auto p-4 sm:p-6">Comments</h3>
-        @foreach ($userComments as $userComment)
-                @foreach ($userComment->comments as $comment)
-                    <div class="w-11/12 sm:w-3/5 mx-auto mb-3 p-4 sm:p-6 bg-gray-50 shadow-md rounded-lg">
-                        <p class="text-green-500 mb-3">{{ $userComment->name }}</p>
-                        <p>{!! $comment->body !!}</p>
-                    </div>
-                @endforeach
+        <h3 class="w-11/12 sm:w-3/5 mx-auto py-4 sm:py-6">Comments</h3>
+        @foreach ($comments as $comment)
+            <div class="w-11/12 sm:w-3/5 mx-auto mb-3 p-4 sm:p-6 bg-gray-50 shadow-md rounded-lg border-l-8 border-cyan-500">
+                <p class="text-cyan-500 mb-3">{{ $comment->name }} <span class="ml-3 text-gray-700">Posted {{ Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}</span></p>
+                <p>{!! $comment->body !!}</p>
+            </div>
         @endforeach
-        <div class="w-11/12 sm:w-3/5 my-3 mx-auto p-4 sm:p-6 bg-gray-50">
+        <div class="w-11/12 sm:w-3/5 my-3 mx-auto p-4 sm:p-6">
             <form action="{{ route('comments.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="post_id" value="{{ $post->id }}">
