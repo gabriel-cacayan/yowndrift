@@ -64,19 +64,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = DB::table('users')
-            ->join('posts', 'users.id', '=', 'posts.user_id')
-            ->where('posts.id', '=', $id)
-            ->first();
-
-        $comments = DB::table('users')
-            ->join('comments', 'users.id', '=', 'comments.user_id')
-            ->where('post_id', '=', $id)
-            ->get();
-
         return view('pages.posts.show', [
-            'post' => $post,
-            'comments' => $comments
+            'id' => $id,
         ]);
     }
 

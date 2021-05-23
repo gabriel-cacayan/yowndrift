@@ -49,7 +49,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::where('id', 'like', '%' . $id . '%')->first();
 
         $posts = DB::table('users')
             ->join('posts', 'users.id', '=', 'posts.user_id')

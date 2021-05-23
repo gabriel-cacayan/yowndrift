@@ -11,11 +11,9 @@ use App\Http\Controllers\User\CommentController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-
-// 'verified'
 Route::middleware(['auth:sanctum'])->group(function () {
 
-    Route::resource('/users', UserController::class)->only(['index']);
+    Route::resource('/users', UserController::class)->only('index');
 
     Route::resource('/posts', PostController::class)->except(['index', 'show']);
 

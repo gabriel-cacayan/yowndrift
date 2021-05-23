@@ -9,15 +9,12 @@ class Comment extends Model
 {
     use HasFactory;
 
-    // protected $table = 'comments';
-    // protected $primaryKey = 'comment_id';
-
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function posts()
+    public function post()
     {
         return $this->belongsTo(Post::class);
     }

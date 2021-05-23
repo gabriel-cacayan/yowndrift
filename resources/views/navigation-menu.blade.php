@@ -65,7 +65,7 @@
                            
                         </x-slot>
                     </x-jet-dropdown>
-                    <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts./[^create]/')">
+                    <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                         {{ __('Posts') }}
                     </x-jet-nav-link>
                     @auth
@@ -223,7 +223,7 @@
                         </form>
                     </x-slot>
                 </x-jet-dropdown>
-                <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts./[^create]/')">
+                <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                     {{ __('Posts') }}
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
@@ -320,7 +320,7 @@
                             </form>
                         </x-slot>
                     </x-jet-dropdown>
-                    <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts./[^create]/')">
+                    <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                         {{ __('Posts') }}
                     </x-jet-responsive-nav-link>
                    @auth

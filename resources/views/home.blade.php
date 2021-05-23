@@ -29,7 +29,7 @@
                        </a>
                    </div>
                    <div class="truncate max-h-24">
-                       <p class="text-sm">{!!$post->body!!}</p>
+                       <p class="text-sm text-gray-700">{!!$post->body!!}</p>
                    </div>
                    <a href="/users/{{ $post->user_id }}" class="hover:underline hover:text-cyan-500">
                      Posted by {{ $post->name }}
@@ -44,6 +44,8 @@
                </div>
           </div>
        @endforelse
-         <a href="{{ route('posts.index') }}" class="text-center block w-full sm:w-auto sm:inline-flex items-center mt-5 px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-gray-50 uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">Find more posts</a>
+        <div class="flex justify-center items-center">
+            <a href="{{ route('posts.index') }}" class="text-center block w-full sm:w-auto sm:inline-flex items-center mt-5 px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-gray-50 uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">Find more posts</a>
+        </div>
    </div>
 </x-app-layout>
