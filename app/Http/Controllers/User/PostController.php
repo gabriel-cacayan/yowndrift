@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Post;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePostRequest;
@@ -104,16 +103,5 @@ class PostController extends Controller
         $request->session()->flash('flash.bannerStyle', 'success');
 
         return redirect('/users');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

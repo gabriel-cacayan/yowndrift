@@ -1,17 +1,19 @@
 <div>
     <h3 class="w-11/12 sm:w-3/5 mx-auto py-4 sm:py-6">Comments</h3>
+        {{-- Display all the comments related to this post --}}
         @foreach ($comments as $comment)
             <div class="w-11/12 sm:w-3/5 mx-auto mb-3 p-4 sm:p-6 bg-gray-50 shadow-md rounded-lg">
                 <p class="text-cyan-500 mb-3 text-md">{{ optional($comment)->user->name }} <span class="ml-3 text-gray-700 text-sm">Posted {{ Carbon\Carbon::parse(optional($comment)->created_at)->diffForHumans() }}</span></p>
                 <p>{!! optional($comment)->body !!}</p>
             </div>
         @endforeach
+        {{-- Textarea will be display if the user were log in --}}
         @auth
-            <div class="w-11/12 sm:w-3/5 my-5 mx-auto p-4 sm:p-6 bg-gray-900 shadow-md rounded-lg">
+            <div class="w-11/12 sm:w-3/5 my-5 mx-auto p-4 sm:p-6 bg-gray-50 shadow-md rounded-lg">
                 <form wire:submit.prevent="createComment">
                     <input type="hidden" name="post_id" wire:model="post_id" value="{{ $post_id }}">
                     
-                    <textarea class="w-full" name="body" wire:model="body" rows="10"></textarea>
+                    <textarea class="w-full border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-200 focus:ring-opacity-50 rounded-md shadow-sm" name="body" wire:model="body" rows="5"></textarea>
                     <x-jet-input-error for="body" class="mt-2" />
 
                     <div class="flex items-center justify-end mt-4 space-x-4">
@@ -23,6 +25,7 @@
                  </form> 
             </div>
         @endauth
+        {{-- This text will show if user were not log in --}}
         @guest
            <div class="w-11/12 sm:w-3/5 my-5 mx-auto p-4 sm:p-6 text-center">
                 <p>Please <a href="{{ route('login') }}" class="text-cyan-500 hover:underline">log in</a> or <a href="{{ route('register') }}" class="text-cyan-500 hover:underline">create an account</a> to participate in this conversation.</p>

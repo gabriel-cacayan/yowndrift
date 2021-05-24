@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Post;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $posts = DB::table('users')
-            ->join('posts', 'users.id', '=', 'posts.user_id')
-            ->orderBy('posts.created_at', 'desc')
-            ->limit(5)
+
+        $posts = Post::orderBy('created_at', 'desc')
+            ->take(5)
             ->get();
 
         return view('home', ['posts' => $posts]);
