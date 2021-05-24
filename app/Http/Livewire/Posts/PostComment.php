@@ -2,10 +2,9 @@
 
 namespace App\Http\Livewire\Posts;
 
+use App\Models\Post;
 use App\Models\Comment;
 use Livewire\Component;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class PostComment extends Component
@@ -29,18 +28,14 @@ class PostComment extends Component
             'body' => $this->body,
         ]);
 
-        $this->comments = DB::table('users')
-            ->join('comments', 'users.id', '=', 'comments.user_id')
-            ->where('post_id', '=', $this->post_id)
+        $this->comments = Post::find($this->post_id)->comments()
             ->orderBy('comments.created_at', 'desc')
             ->get();
     }
 
     public function mount($post_id)
     {
-        $this->comments = DB::table('users')
-            ->join('comments', 'users.id', '=', 'comments.user_id')
-            ->where('post_id', '=', $post_id)
+        $this->comments = Post::find($post_id)->comments()
             ->orderBy('comments.created_at', 'desc')
             ->get();
     }

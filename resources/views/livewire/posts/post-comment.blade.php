@@ -2,7 +2,7 @@
     <h3 class="w-11/12 sm:w-3/5 mx-auto py-4 sm:py-6">Comments</h3>
         @foreach ($comments as $comment)
             <div class="w-11/12 sm:w-3/5 mx-auto mb-3 p-4 sm:p-6 bg-gray-50 shadow-md rounded-lg">
-                <p class="text-cyan-500 mb-3 text-md">{{ optional($comment)->name }} <span class="ml-3 text-gray-700 text-sm">Posted {{ Carbon\Carbon::parse(optional($comment)->created_at)->diffForHumans() }}</span></p>
+                <p class="text-cyan-500 mb-3 text-md">{{ optional($comment)->user->name }} <span class="ml-3 text-gray-700 text-sm">Posted {{ Carbon\Carbon::parse(optional($comment)->created_at)->diffForHumans() }}</span></p>
                 <p>{!! optional($comment)->body !!}</p>
             </div>
         @endforeach
