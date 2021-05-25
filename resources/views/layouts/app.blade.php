@@ -21,12 +21,12 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
         <script src="{{ asset('js/search.js') }}" defer></script>
-        <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+        @stack('scripts')
 
     </head>
     <body class="font-sans antialiased">
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-200">
             @livewire('navigation-menu')
             
             <!-- Page Heading -->
@@ -41,7 +41,7 @@
             <x-jet-banner />
             
             <!-- Page Content -->
-            <main class="bg-gray-100">
+            <main class="bg-gray-200">
                 {{ $slot }}
             </main>
             @include('footer')

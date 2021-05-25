@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="min-h-screen max-h-auto flex flex-col sm:justify-center items-center p-6 bg-gray-100">
+    <div class="min-h-screen max-h-auto flex flex-col sm:justify-center items-center p-6 bg-gray-200">
         <div>
             <div class="text-center mb-5">
                 <h1 class="font-bold font-ibm text-lg mb-3">Write something worth reading</h1>
@@ -7,9 +7,9 @@
             </div>
         </div>
 
-        <div class="w-full sm:max-w-3xl mt-6 px-6 py-4 bg-gray-50 shadow-md overflow-hidden sm:rounded-lg">
+        <div class="w-full sm:max-w-3xl mt-6 px-6 py-4 bg-gray-50 shadow-md rounded-lg">
 
-            <form  action="/posts/{{ $post->id }}" method="POST">
+            <form  action="{{ route('posts.show', $post->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -42,12 +42,15 @@
     
     
                 <div class="flex items-center justify-end mt-4">
-                    <x-jet-button>
-                        {{ __('Post') }}
+                    <x-jet-button class="bg-green-700 hover:bg-green-500 active:bg-green-700 focus:border-green-700 focus:ring-green-300" type="submit">
+                        {{ __('Update') }}
                     </x-jet-button>
                 </div>
 
             </form>
         </div>
     </div>
+    @push('scripts')
+        <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>  
+    @endpush
 </x-app-layout>

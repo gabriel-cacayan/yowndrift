@@ -31,6 +31,8 @@ class PostComment extends Component
         $this->comments = Post::find($this->post_id)->comments()
             ->orderBy('comments.created_at', 'desc')
             ->get();
+            
+        $this->body = ''; 
     }
 
     public function mount($post_id)

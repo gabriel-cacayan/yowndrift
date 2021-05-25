@@ -1,9 +1,9 @@
 <x-app-layout>
    {{-- Landing page's content --}}
-   <div class="bg-gray-50 py-6 sm:py-0 flex flex-row justify-center items-center">
-        <img src="{{ asset('img/svg/landing-page-picture.svg') }}" class="hidden sm:block h-1/2 w-1/2" alt="A girl writing something into a laptop.">
-        <div class="text-center sm:text-left px-12">
-           <h1 class="font-bold text-4xl sm:text-5xl mb-5">Built for <span class="text-cyan-500">Bloggers</span></h1>
+   <div class="bg-gray-50 py-6 sm:py-0 flex flex-col sm:flex-row justify-center items-center">
+        <img src="{{ asset('img/svg/landing-page-picture.svg') }}" class="block h-1/2 w-1/2" alt="A girl writing something into a laptop.">
+        <div class="text-center sm:text-left px-6 sm:px-12">
+           <h1 class="font-bold text-4xl sm:text-5xl my-5">Built for <span class="text-cyan-500">Bloggers</span></h1>
            <p class="text-gray-700 text-sm">Yowndrift is a blog web application, where anyone can share their ideas or knowledge on a specific topic.</p>
            @auth
                <a href="{{ route('posts.create') }}" class="block w-full sm:w-auto sm:inline-flex items-center mt-5 px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-gray-50 uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">Get started</a>    
@@ -24,14 +24,14 @@
                <div class="px-4 my-5 w-full text-gray-500 md:w-3/5 flex flex-col space-y-5">
                    <div class="flex flex-col space-y-5">
                        <p class="text-sm">{{ $post->category }}</p>
-                       <a href="/posts/{{ $post->id }}" class="text-xl text-gray-900 hover:text-cyan-500 font-bold hover:underline">
+                       <a href="{{ route('posts.show', $post->id) }}" class="text-xl text-gray-900 hover:text-cyan-500 font-bold hover:underline">
                        {{ $post->title }}
                        </a>
                    </div>
                    <div class="truncate max-h-24">
                        <p class="text-sm text-gray-700">{!!$post->body!!}</p>
                    </div>
-                   <a href="/users/{{ $post->user_id }}" class="hover:underline hover:text-cyan-500">
+                   <a href="{{ route('users.show', $post->user_id) }}" class="hover:underline hover:text-cyan-500">
                      Posted by {{ $post->user->name }}
                    </a>
                </div>
@@ -45,9 +45,11 @@
           </div>
        @endforelse
         <div class="flex justify-center items-center">
-            <a href="{{ route('posts.index') }}" class="text-center sm:w-auto flex flex-row justify-center items-center mt-5 px-4 py-2 bg-blue-700 border border-transparent rounded-md font-semibold text-xs text-blue-50 uppercase tracking-widest hover:bg-blue-500 active:bg-blue-900 focus:outline-none focus:border-blue-900 focus:ring focus:ring-blue-300 disabled:opacity-25 transition">Find more posts<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-50 ml-2" viewBox="0 0 20 20" fill="currentColor">
+            <a href="{{ route('posts.index') }}" class="text-center sm:w-auto flex flex-row justify-center items-center mt-5 px-4 py-2 bg-blue-700 border border-transparent rounded-md font-semibold text-xs text-blue-50 uppercase tracking-widest hover:bg-blue-500 active:bg-blue-900 focus:outline-none focus:border-blue-900 focus:ring focus:ring-blue-300 disabled:opacity-25 transition">Find more posts
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-50 ml-2" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg></a>
+              </svg>
+            </a>
         </div>
    </div>
 </x-app-layout>

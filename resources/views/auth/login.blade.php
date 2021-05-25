@@ -16,11 +16,11 @@
             @csrf
 
             <div>
-                <input id="email" class="mt-1 w-full block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="email" name="email" :value="old('email')" placeholder="Email" required autofocus />
+                <x-jet-input id="email" class="mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Email" required autofocus />
             </div>
 
             <div class="mt-4">
-                <input id="password" class="mt-1 w-full block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="password" name="password"  placeholder="Password" required autocomplete="current-password" />
+                <x-jet-input id="password" class="mt-1 w-full" type="password" name="password"  placeholder="Password" required autocomplete="current-password" />
             </div>
 
             {{-- <div class="block mt-4">
@@ -30,17 +30,17 @@
                 </label>
             </div> --}}
 
-            <div class="flex flex-col justify-center items-center mt-4 space-y-5">
+            <div class="flex flex-col justify-center items-center mt-5 space-y-5">
 
                 <x-jet-button class="sm:flex sm:w-full justify-center">
                     {{ __('Log in') }}
                 </x-jet-button>
 
-                @if (Route::has('password.request'))
+                {{-- @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif
+                @endif --}}
 
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
                     {{ __('Create an account') }}

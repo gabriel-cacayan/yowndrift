@@ -19,11 +19,11 @@
                 @csrf
 
                 <div class="mt-4" x-show="! recovery">
-                    <input id="code" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="text" inputmode="numeric" name="code" placeholder="Code" autofocus x-ref="code" autocomplete="one-time-code" />
+                    <x-jet-input id="code" class="w-full mt-1" type="text" inputmode="numeric" name="code" placeholder="Code" autofocus x-ref="code" autocomplete="one-time-code" />
                 </div>
 
                 <div class="mt-4" x-show="recovery">
-                    <input id="recovery_code" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="text" name="recovery_code" placeholder="Recovery Code" x-ref="recovery_code" autocomplete="one-time-code" />
+                    <x-jet-input id="recovery_code" class="w-full mt-1" type="text" name="recovery_code" placeholder="Recovery Code" x-ref="recovery_code" autocomplete="one-time-code" />
                 </div>
 
                 <div class="flex flex-col items-center justify-center mt-4 space-y-5">

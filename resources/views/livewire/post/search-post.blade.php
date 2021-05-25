@@ -1,6 +1,6 @@
 <div class="p-8 md:p-12">
-        <input 
-        class="relative w-full mt-1 block px-1 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" 
+        <x-jet-input 
+        class="relative w-full mt-1" 
         type="text" 
         placeholder="Title or name"
         wire:model="search" 
@@ -19,7 +19,7 @@
            <div class="max-h-96 overflow-auto divide-y divide-gray-200">
              @if (!empty($search))
                 @forelse ($posts as $post)
-                    <a href="/posts/{{$post->id}}" class="flex flex-col list-item list-none px-5 py-2 hover:bg-gray-100">
+                    <a href="{{ route('posts.show', $post->id) }}" class="flex flex-col list-item list-none py-2 hover:bg-gray-100">
                         <p class="mb-2 text-cyan-500">{{ $post->title }}</p>
                         <p class="text-md text-gray-600 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />

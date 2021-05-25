@@ -13,19 +13,19 @@
             @csrf
 
             <div>
-                <input id="name" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="text" name="name" :value="old('name')" placeholder="Name" required autofocus autocomplete="name" />
+                <x-jet-input id="name" class="w-full mt-1" type="text" name="name" :value="old('name')" placeholder="Name" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
-                <input id="email" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="email" name="email" :value="old('email')" placeholder="Email" required />
+                <x-jet-input id="email" class="w-full mt-1" type="email" name="email" :value="old('email')" placeholder="Email" required />
             </div>
 
             <div class="mt-4">
-                <input id="password" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="password" name="password" placeholder="Password" required autocomplete="new-password" />
+                <x-jet-input id="password" class="w-full mt-1" type="password" name="password" placeholder="Password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <input id="password_confirmation" class="w-full mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-500" type="password" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password" />
+                <x-jet-input id="password_confirmation" class="w-full mt-1" type="password" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password" />
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -45,7 +45,7 @@
                 </div>
             @endif
 
-            <div class="flex flex-col justify-center items-center mt-4 space-y-5">
+            <div class="flex flex-col justify-center items-center mt-5 space-y-5">
 
                 <x-jet-button class="sm:flex sm:w-full justify-center bg-blue-700 hover:bg-blue-500">
                     {{ __('Register') }}

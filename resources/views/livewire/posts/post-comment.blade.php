@@ -13,7 +13,7 @@
                 <form wire:submit.prevent="createComment">
                     <input type="hidden" name="post_id" wire:model="post_id" value="{{ $post_id }}">
                     
-                    <textarea class="w-full border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-200 focus:ring-opacity-50 rounded-md shadow-sm" name="body" wire:model="body" rows="5"></textarea>
+                    <textarea class="w-full border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-200 focus:ring-opacity-50 rounded-md shadow-sm" name="body" wire:model="body" rows="5" placeholder="Write a comment"></textarea>
                     <x-jet-input-error for="body" class="mt-2" />
 
                     <div class="flex items-center justify-end mt-4 space-x-4">
