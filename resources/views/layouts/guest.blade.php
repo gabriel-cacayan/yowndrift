@@ -21,7 +21,7 @@
 
     </head>
     <body>
-        <div class="antialiased bg-gray-200">
+        <div class="antialiased">
             {{ $slot }}
         </div>
     </body>

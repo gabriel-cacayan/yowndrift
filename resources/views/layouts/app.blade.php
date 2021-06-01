@@ -51,20 +51,13 @@
 
         @livewireScripts
         
-        <script>           
-            ClassicEditor.create(document.getElementById('body'), {
-                toolbar: {
-                items: [
-                    'heading', '|',
-                    'bold', 'italic','|',
-                    'link', '|',
-                    'blockQuote', '|',
-                    'undo', 'redo'
-                ],
-                shouldNotGroupWhenFull: true
-            }
-            })
-            .then(editor => { thisEditor = editor });
+        <script>
+            //CkEditor Version 5           
+            // ClassicEditor.create(document.getElementById('body'))
+            // .then(editor => { thisEditor = editor });
+
+            //CkEditor Version 4        
+            CKEDITOR.replace( 'body' );
         </script> 
     </body>
 </html>

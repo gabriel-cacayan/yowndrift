@@ -19,7 +19,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 md:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 lg:flex">
                     <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-jet-nav-link>
@@ -27,43 +27,27 @@
 
                         <x-slot name="trigger">
                             <x-jet-nav-link class="mt-5">
-                                Categories <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                Blog Categories <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                             </x-jet-nav-link>
                         </x-slot>
 
                         <x-slot name="content">
-            
-                                <form action="{{ route('posts.index') }}">
-                                    <input type="hidden" value="technology" name="search">
-                                    <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
-                                        Technology
-                                    </button>
-                                </form>
-                         
-                                <form action="{{ route('posts.index') }}">
-                                    <input type="hidden" value="health" name="search">
-                                    <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
-                                        Health
-                                    </button>
-                                </form>
-                           
-                                <form action="{{ route('posts.index') }}">
-                                    <input type="hidden" value="science" name="search">
-                                    <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
-                                        Science
-                                    </button>
-                                </form>
-                           
-                                <form action="{{ route('posts.index') }}">
-                                    <input type="hidden" value="society" name="search">
-                                    <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
-                                        Society
-                                    </button>
-                                </form>
-                           
+                            <x-jet-dropdown-link href="/posts?search=technology">
+                                Technology
+                            </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="/posts?search=science">
+                                Science
+                            </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="/posts?search=health">
+                                Health
+                            </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="/posts?search=society">
+                                Society
+                            </x-jet-dropdown-link>
                         </x-slot>
+
                     </x-jet-dropdown>
                     <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.*')">
                         {{ __('Posts') }}
@@ -81,7 +65,7 @@
                 </div>
             </div>
 
-            <div class="hidden md:flex sm:items-center sm:ml-6">
+            <div class="hidden lg:flex sm:items-center sm:ml-6">
 
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative flex items-center space-x-5">
@@ -160,7 +144,7 @@
             </div>
 
             <!-- Hamburger -->
-            <div class="-mr-2 flex justify-around items-center md:hidden">
+            <div class="-mr-2 flex justify-around items-center lg:hidden">
                 <x-jet-nav-link class="cursor-pointer" id="search-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -177,50 +161,35 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden md:hidden">
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden lg:hidden">
         @auth
             <div class="pt-2 pb-3 space-y-1">
                 <x-jet-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                     {{ __('Home') }}
                 </x-jet-responsive-nav-link>
-                <x-jet-dropdown align="none" width="screen">
+                <x-jet-dropdown align="none" width="full">
 
                     <x-slot name="trigger">
                         <x-jet-responsive-nav-link class="flex flex-row">
-                            Categories <svg class="ml-2 mt-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            Blog Categories <svg class="ml-2 mt-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                         </x-jet-responsive-nav-link>
                     </x-slot>
 
                     <x-slot name="content">
-                        <form action="{{ route('posts.index') }}">
-                            <input type="hidden" value="technology" name="search">
-                            <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
-                                Technology
-                            </button>
-                        </form>
-                 
-                        <form action="{{ route('posts.index') }}">
-                            <input type="hidden" value="health" name="search">
-                            <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
-                                Health
-                            </button>
-                        </form>
-                   
-                        <form action="{{ route('posts.index') }}">
-                            <input type="hidden" value="science" name="search">
-                            <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
-                                Science
-                            </button>
-                        </form>
-                   
-                        <form action="{{ route('posts.index') }}">
-                            <input type="hidden" value="society" name="search">
-                            <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
-                                Society
-                            </button>
-                        </form>
+                        <x-jet-dropdown-link href="/posts?search=technology">
+                            Technology
+                        </x-jet-dropdown-link>
+                        <x-jet-dropdown-link href="/posts?search=science">
+                            Science
+                        </x-jet-dropdown-link>
+                        <x-jet-dropdown-link href="/posts?search=health">
+                            Health
+                        </x-jet-dropdown-link>
+                        <x-jet-dropdown-link href="/posts?search=society">
+                            Society
+                        </x-jet-dropdown-link>
                     </x-slot>
                 </x-jet-dropdown>
                 <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.*')">
@@ -280,51 +249,36 @@
                     <x-jet-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-jet-responsive-nav-link>
-                    <x-jet-dropdown align="none" width="screen">
+                    <x-jet-dropdown align="none" width="full">
 
                         <x-slot name="trigger">
                             <x-jet-responsive-nav-link class="flex flex-row">
-                                Categories <svg class="ml-2 mt-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                Blog Categories <svg class="ml-2 mt-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                             </x-jet-responsive-nav-link>
                         </x-slot>
 
                         <x-slot name="content">
-                            <form action="{{ route('posts.index') }}">
-                                <input type="hidden" value="technology" name="search">
-                                <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
-                                    Technology
-                                </button>
-                            </form>
-                     
-                            <form action="{{ route('posts.index') }}">
-                                <input type="hidden" value="health" name="search">
-                                <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
-                                    Health
-                                </button>
-                            </form>
-                       
-                            <form action="{{ route('posts.index') }}">
-                                <input type="hidden" value="science" name="search">
-                                <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
-                                    Science
-                                </button>
-                            </form>
-                       
-                            <form action="{{ route('posts.index') }}">
-                                <input type="hidden" value="society" name="search">
-                                <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
-                                    Society
-                                </button>
-                            </form>
+                            <x-jet-dropdown-link href="/posts?search=technology">
+                                Technology
+                            </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="/posts?search=science">
+                                Science
+                            </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="/posts?search=health">
+                                Health
+                            </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="/posts?search=society">
+                                Society
+                            </x-jet-dropdown-link>
                         </x-slot>
                     </x-jet-dropdown>
-                    <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                    <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.*')">
                         {{ __('Posts') }}
                     </x-jet-responsive-nav-link>
                    @auth
-                        <x-jet-responsive-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
+                        <x-jet-responsive-nav-link href="{{ route('posts.create') }}">
                             {{ __('Write a post') }}
                         </x-jet-responsive-nav-link>    
                    @endauth

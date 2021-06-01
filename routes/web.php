@@ -5,8 +5,23 @@ use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\PostController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\CommentController;
+use App\Http\Controllers\User\SocialiteController;
 
 
+// Facebook
+Route::get('/login/facebook', [SocialiteController::class, 'facebook'])->name('login.facebook');
+
+Route::get('/login/facebook/redirect', [SocialiteController::class, 'facebookRedirect']);
+
+// Google
+Route::get('/login/google', [SocialiteController::class, 'google'])->name('login.google');
+
+Route::get('/login/google/redirect', [SocialiteController::class, 'googleRedirect']);
+
+// Github
+Route::get('/login/github', [SocialiteController::class, 'github'])->name('login.github');
+
+Route::get('/login/github/redirect', [SocialiteController::class, 'githubRedirect']);
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');

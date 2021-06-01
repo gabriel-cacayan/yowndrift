@@ -36,7 +36,7 @@
                 {{-- Body --}}
                 <div class="mt-4">
                     <x-jet-label for="body" value="{{ __('Body') }}" />
-                    <textarea value="{!!$post->body!!}" rows="10" class="block w-full mt-1 border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-200 focus:ring-opacity-50 rounded-md shadow-sm" name="body" id="body"></textarea>
+                    <textarea rows="10" class="block w-full mt-1 border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-200 focus:ring-opacity-50 rounded-md shadow-sm" name="body" id="body"><p>{!! $post->body !!}</p></textarea>
                     <x-jet-input-error for="body" class="mt-2" />
                 </div>
     
@@ -51,6 +51,10 @@
         </div>
     </div>
     @push('scripts')
-        <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>  
+        {{-- CkEditor Version 5 --}}
+        {{-- <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>   --}}
+        
+         {{-- CkEditor Version 4 --}}
+         <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script> 
     @endpush
 </x-app-layout>

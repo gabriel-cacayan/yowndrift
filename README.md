@@ -7,6 +7,7 @@
 * `git clone https://github.com/GabrielCode-Full/yowndrift.git`
 * `cd yowndrift`
 * `composer update`
+* `composer require laravel/socialite`
 * `npm install && npm run dev`
 *  add database to `.env` file
 * `php artisan migrate --seed`

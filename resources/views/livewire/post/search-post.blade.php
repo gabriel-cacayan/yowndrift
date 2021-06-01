@@ -1,17 +1,17 @@
 <div class="p-8 md:p-12">
         <x-jet-input 
-        class="relative w-full mt-1" 
+        class="relative w-full mt-5" 
         type="text" 
         placeholder="Title or name"
         wire:model="search" 
         wire:keydown.escape="resetSearch"
         />
         {{-- svg close --}}
-        <svg xmlns="http://www.w3.org/2000/svg" class="rounded-md bg-red-500 text-gray-50 absolute top-2 md:top-4 right-2 md:right-4 z-50 cursor-pointer h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="search-close">
+        <svg xmlns="http://www.w3.org/2000/svg" class="rounded-md bg-red-500 text-gray-50 absolute top-2 md:top-4 right-2 md:right-4 z-50 cursor-pointer h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="search-close">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
          {{-- svg search --}}
-         <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-12 md:top-16 right-10 md:right-14 h-5 w-5 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+         <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-16 md:top-20 right-10 md:right-14 h-5 w-5 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
         {{-- Search content --}}

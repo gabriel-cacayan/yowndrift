@@ -50,6 +50,10 @@
         </div>
     </div>
     @push('scripts')
-        <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>  
+        {{-- CkEditor Version 5 --}}
+        {{-- <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>   --}}
+        
+         {{-- CkEditor Version 4 --}}
+         <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
     @endpush
 </x-app-layout>
