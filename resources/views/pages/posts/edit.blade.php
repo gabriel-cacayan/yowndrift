@@ -16,7 +16,7 @@
                 {{-- Category --}}
                 <div>
                     <x-jet-label for="category" value="{{ __('Category') }}" />
-                    <select class="block w-full mt-1 border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-200 focus:ring-opacity-50 rounded-md shadow-sm" type="select" name="category">
+                    <select type="select" name="category" class="block w-full mt-1 border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-200 focus:ring-opacity-50 rounded-md shadow-sm">
                         <option selected value="{{ $post->category }}">{{ $post->category }}</option>
                         <option value="Technology">Technology</option>
                         <option value="Science">Science</option>
@@ -29,20 +29,20 @@
                 {{-- Title --}}
                 <div class="mt-4">
                     <x-jet-label for="title" value="{{ __('Title') }}" />
-                    <x-jet-input id="title" class="block mt-1 w-full" type="text" name="title" value="{{ $post->title }}" required />
+                    <x-jet-input id="title" type="text" name="title" value="{{ $post->title }}" required class="block mt-1 w-full" />
                     <x-jet-input-error for="title" class="mt-2" />    
                 </div>
                 
                 {{-- Body --}}
                 <div class="mt-4">
                     <x-jet-label for="body" value="{{ __('Body') }}" />
-                    <textarea rows="10" class="block w-full mt-1 border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-200 focus:ring-opacity-50 rounded-md shadow-sm" name="body" id="body"><p>{!! $post->body !!}</p></textarea>
+                    <textarea rows="10" name="body" id="body" class="block w-full mt-1 border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-200 focus:ring-opacity-50 rounded-md shadow-sm"><p>{!! $post->body !!}</p></textarea>
                     <x-jet-input-error for="body" class="mt-2" />
                 </div>
     
     
                 <div class="flex items-center justify-end mt-4">
-                    <x-jet-button class="bg-green-700 hover:bg-green-500 active:bg-green-700 focus:border-green-700 focus:ring-green-300" type="submit">
+                    <x-jet-button type="submit" class="bg-green-700 hover:bg-green-500 active:bg-green-700 focus:border-green-700 focus:ring-green-300">
                         {{ __('Update') }}
                     </x-jet-button>
                 </div>

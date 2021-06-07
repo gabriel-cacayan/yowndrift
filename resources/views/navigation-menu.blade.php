@@ -1,10 +1,10 @@
 <nav x-data="{ open: false }" class="bg-gray-50 border-b border-gray-100">
     <!-- Search bar functions -->
-    <div class="hidden" id="search-container">
-        <div class="max-h-96 w-4/5 sm:w-1/2 m-auto rounded-md bg-gray-50 absolute inset-0 z-50">
+    <div id="search-container" class="hidden">
+        <div class="max-h-96 w-11/12 sm:w-3/4 md:w-3/5 m-auto rounded-md bg-gray-50 absolute inset-0 z-50">
             @livewire('post.search-post')
         </div>
-        <div class="h-screen w-full bg-gray-900 bg-opacity-25 absolute inset-0 z-40" id="search-overlay">
+        <div id="search-overlay" class="h-screen w-full bg-gray-900 bg-opacity-25 absolute inset-0 z-40">
         </div>
     </div>
     <!-- Primary Navigation Menu -->
@@ -13,7 +13,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('home') }}">
+                    <a href="{{ route('home') }}" class="text-gray-900">
                         <h6 class="font-black font-ibm">Yowndrift</h6>
                     </a>
                 </div>
@@ -27,23 +27,24 @@
 
                         <x-slot name="trigger">
                             <x-jet-nav-link class="mt-5">
-                                Blog Categories <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                Blog Categories 
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-2 -mr-0.5 h-4 w-4">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                             </x-jet-nav-link>
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-jet-dropdown-link href="/posts?search=technology">
+                            <x-jet-dropdown-link href="/posts?search=Technology">
                                 Technology
                             </x-jet-dropdown-link>
-                            <x-jet-dropdown-link href="/posts?search=science">
+                            <x-jet-dropdown-link href="/posts?search=Science">
                                 Science
                             </x-jet-dropdown-link>
-                            <x-jet-dropdown-link href="/posts?search=health">
+                            <x-jet-dropdown-link href="/posts?search=Health">
                                 Health
                             </x-jet-dropdown-link>
-                            <x-jet-dropdown-link href="/posts?search=society">
+                            <x-jet-dropdown-link href="/posts?search=Society">
                                 Society
                             </x-jet-dropdown-link>
                         </x-slot>
@@ -69,8 +70,8 @@
 
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative flex items-center space-x-5">
-                    <x-jet-nav-link class="cursor-pointer" id="search-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <x-jet-nav-link id="search-md" class="cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                           </svg>
                     </x-jet-nav-link>
@@ -80,8 +81,8 @@
                             <x-slot name="trigger">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                     <button class="flex items-center text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                                        <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" class="h-8 w-8 rounded-full object-cover" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="ml-1 h-4 w-4">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                           </svg>
                                     </button>
@@ -90,7 +91,7 @@
                                         <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                             {{ Auth::user()->name }}
     
-                                            <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-2 h-4 w-4">
                                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                             </svg>
                                         </button>
@@ -104,7 +105,7 @@
                                     {{ __('Manage Account') }}
                                 </div>
                                 
-                                <x-jet-dropdown-link href="{{ route('users.index') }}">
+                                <x-jet-dropdown-link href="{{ route('user.dashboard') }}">
                                     {{ __('Dashboard') }}
                                 </x-jet-dropdown-link>
 
@@ -145,13 +146,13 @@
 
             <!-- Hamburger -->
             <div class="-mr-2 flex justify-around items-center lg:hidden">
-                <x-jet-nav-link class="cursor-pointer" id="search-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <x-jet-nav-link id="search-sm" class="cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                       </svg>
                 </x-jet-nav-link>
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    <svg stroke="currentColor" fill="none" viewBox="0 0 24 24" class="h-6 w-6">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -171,23 +172,24 @@
 
                     <x-slot name="trigger">
                         <x-jet-responsive-nav-link class="flex flex-row">
-                            Blog Categories <svg class="ml-2 mt-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            Blog Categories 
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-2 mt-1 h-4 w-4">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                         </x-jet-responsive-nav-link>
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-jet-dropdown-link href="/posts?search=technology">
+                        <x-jet-dropdown-link href="/posts?search=Technology">
                             Technology
                         </x-jet-dropdown-link>
-                        <x-jet-dropdown-link href="/posts?search=science">
+                        <x-jet-dropdown-link href="/posts?search=Science">
                             Science
                         </x-jet-dropdown-link>
-                        <x-jet-dropdown-link href="/posts?search=health">
+                        <x-jet-dropdown-link href="/posts?search=Health">
                             Health
                         </x-jet-dropdown-link>
-                        <x-jet-dropdown-link href="/posts?search=society">
+                        <x-jet-dropdown-link href="/posts?search=Society">
                             Society
                         </x-jet-dropdown-link>
                     </x-slot>
@@ -205,7 +207,7 @@
                 <div class="flex items-center px-4">
                     @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                         <div class="flex-shrink-0 mr-3">
-                            <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                            <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" class="h-10 w-10 rounded-full object-cover" />
                         </div>
                     @endif
 
@@ -218,7 +220,7 @@
                 <div class="mt-3 space-y-1">
                     <!-- Account Management -->
 
-                    <x-jet-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                    <x-jet-responsive-nav-link href="{{ route('user.dashboard') }}" :active="request()->routeIs('users.index')">
                         {{ __('Dashboard') }}
                      </x-jet-responsive-nav-link>
 
@@ -253,23 +255,24 @@
 
                         <x-slot name="trigger">
                             <x-jet-responsive-nav-link class="flex flex-row">
-                                Blog Categories <svg class="ml-2 mt-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                Blog Categories 
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="ml-2 mt-1 h-4 w-4">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                             </x-jet-responsive-nav-link>
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-jet-dropdown-link href="/posts?search=technology">
+                            <x-jet-dropdown-link href="/posts?search=Technology">
                                 Technology
                             </x-jet-dropdown-link>
-                            <x-jet-dropdown-link href="/posts?search=science">
+                            <x-jet-dropdown-link href="/posts?search=Science">
                                 Science
                             </x-jet-dropdown-link>
-                            <x-jet-dropdown-link href="/posts?search=health">
+                            <x-jet-dropdown-link href="/posts?search=Health">
                                 Health
                             </x-jet-dropdown-link>
-                            <x-jet-dropdown-link href="/posts?search=society">
+                            <x-jet-dropdown-link href="/posts?search=Society">
                                 Society
                             </x-jet-dropdown-link>
                         </x-slot>

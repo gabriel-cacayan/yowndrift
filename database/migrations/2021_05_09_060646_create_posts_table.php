@@ -19,7 +19,8 @@ class CreatePostsTable extends Migration
                 ->constrained('users')
                 ->onDelete('cascade');
             $table->string('category', 50);
-            $table->string('title', 255);
+            $table->string('title', 255)->unique();
+            $table->string('slug', 255);
             $table->text('body');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

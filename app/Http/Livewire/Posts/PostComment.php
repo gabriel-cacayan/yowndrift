@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Auth;
 class PostComment extends Component
 {
     public $comments;
-    public $post_id;
     public $body;
+    public $post_id;
 
     protected $rules = [
         'body' => ['required', 'max:500'],
@@ -29,17 +29,17 @@ class PostComment extends Component
         ]);
 
         $this->comments = Post::find($this->post_id)->comments()
-            ->orderBy('comments.created_at', 'desc')
             ->get();
-            
-        $this->body = ''; 
+
+        $this->body = '';
     }
 
-    public function mount($post_id)
+    public function mount($post)
     {
-        $this->comments = Post::find($post_id)->comments()
-            ->orderBy('comments.created_at', 'desc')
+        $this->comments = Post::find($post->id)->comments()
             ->get();
+
+        $this->post_id = $post->id;
     }
 
     public function render()

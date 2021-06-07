@@ -3,36 +3,19 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function show(User $user)
     {
-
-        return view('pages.users.index');
-    }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $user = User::find($id);
+        $user = User::find($user->id);
 
         $posts = DB::table('users')
             ->join('posts', 'users.id', '=', 'posts.user_id')
-            ->where('users.id', 'like', '%' . $id . '%')
+            ->where('users.id', 'like', '%' . $user->id . '%')
             ->orderBy('posts.created_at', 'desc')
             ->get();
 

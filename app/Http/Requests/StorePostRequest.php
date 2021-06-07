@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StorePostRequest extends FormRequest
@@ -26,7 +25,7 @@ class StorePostRequest extends FormRequest
     {
         return [
             'category' => ['required', 'in:Technology,Science,Health,Society'],
-            'title' => ['required', 'string', 'min:5'],
+            'title' => ['required', 'unique:posts,title', 'string', 'min:5'],
             'body' => ['required', 'string', 'min:50'],
         ];
     }

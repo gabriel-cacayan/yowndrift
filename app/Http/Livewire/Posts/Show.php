@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Posts;
 
+use App\Models\Post;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 
@@ -9,15 +10,12 @@ class Show extends Component
 {
     protected $post;
 
-    public $post_id;
-
-    public function mount($id)
+    public function mount(Post $post)
     {
-        $this->post_id = $id;
 
         $this->post = DB::table('users')
             ->join('posts', 'users.id', '=', 'posts.user_id')
-            ->where('posts.id', '=', $id)
+            ->where('posts.id', '=', $post->id)
             ->first();
     }
 

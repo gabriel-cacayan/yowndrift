@@ -19,9 +19,9 @@ class Index extends Component
         return view('livewire.posts.index', [
             'posts' => DB::table('users')
                 ->join('posts', 'users.id', '=', 'posts.user_id')
-                ->where('posts.category', 'like', '%' . $this->search . '%')
-                ->orWhere('posts.title', 'like', '%' . $this->search . '%')
-                ->orWhere('users.name', 'like', '%' . $this->search . '%')
+                ->where('posts.category', 'like', '%' . strtoupper(substr($this->search, 0, 1)) . strtolower(substr($this->search, 1)) . '%')
+                ->orWhere('posts.title', 'like', '%' . strtoupper(substr($this->search, 0, 1)) . strtolower(substr($this->search, 1)) . '%')
+                ->orWhere('users.name', 'like', '%' . strtoupper(substr($this->search, 0, 1)) . strtolower(substr($this->search, 1)) . '%')
                 ->orderBy('posts.created_at', 'desc')
                 ->simplePaginate(10),
         ]);

@@ -25,9 +25,11 @@ class SearchPost extends Component
 
     public function updatedSearch()
     {
+        // dd(strtoupper(substr($this->search, 0, 1)) . strtolower(substr($this->search, 1)));
+
         $this->posts = DB::table('users')
             ->join('posts', 'users.id', '=', 'posts.user_id')
-            ->where('users.name', 'like', '%' . $this->search . '%')
+            ->where('users.name', 'like', '%' . strtoupper(substr($this->search, 0, 1)) . strtolower(substr($this->search, 1)) . '%')
             ->orWhere('posts.title', 'like', '%' . $this->search . '%')
             ->get();
     }

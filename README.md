@@ -1,6 +1,10 @@
 # Yowndrift
 
-![Web capture_25-5-2021_16449_yowndrift herokuapp com](https://user-images.githubusercontent.com/61103022/119467853-816c0f80-bd78-11eb-922e-f75199d4a5f2.jpeg)
+### Stack used: Laravel Livewire
+
+
+![yowndrift_landing](https://user-images.githubusercontent.com/61103022/120966869-6a2a1a80-c799-11eb-9ef3-acc61948e9cb.jpeg)
+
 
 # Clone: 
 

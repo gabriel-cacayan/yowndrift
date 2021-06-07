@@ -5,11 +5,11 @@
         </x-slot>
 
         <div x-data="{ recovery: false }">
-            <div class="mb-4 text-sm text-gray-600" x-show="! recovery">
+            <div x-show="! recovery" class="mb-4 text-sm text-gray-600">
                 {{ __('Please confirm access to your account by entering the authentication code provided by your authenticator application.') }}
             </div>
 
-            <div class="mb-4 text-sm text-gray-600" x-show="recovery">
+            <div x-show="recovery" class="mb-4 text-sm text-gray-600">
                 {{ __('Please confirm access to your account by entering one of your emergency recovery codes.') }}
             </div>
 
@@ -18,12 +18,12 @@
             <form method="POST" action="{{ route('two-factor.login') }}">
                 @csrf
 
-                <div class="mt-4" x-show="! recovery">
-                    <x-jet-input id="code" class="w-full mt-1" type="text" inputmode="numeric" name="code" placeholder="Code" autofocus x-ref="code" autocomplete="one-time-code" />
+                <div x-show="! recovery" class="mt-4">
+                    <x-jet-input id="code" type="text" inputmode="numeric" name="code" placeholder="Code" autofocus x-ref="code" autocomplete="one-time-code" class="w-full mt-1" />
                 </div>
 
                 <div class="mt-4" x-show="recovery">
-                    <x-jet-input id="recovery_code" class="w-full mt-1" type="text" name="recovery_code" placeholder="Recovery Code" x-ref="recovery_code" autocomplete="one-time-code" />
+                    <x-jet-input id="recovery_code" type="text" name="recovery_code" placeholder="Recovery Code" x-ref="recovery_code" autocomplete="one-time-code" class="w-full mt-1" />
                 </div>
 
                 <div class="flex flex-col items-center justify-center mt-4 space-y-5">

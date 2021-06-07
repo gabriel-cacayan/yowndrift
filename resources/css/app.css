@@ -27,4 +27,8 @@
     h6 {
         @apply text-lg;
     }
+
+    a {
+        @apply text-cyan-500;
+    }
 }

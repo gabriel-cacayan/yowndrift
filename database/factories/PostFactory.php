@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Post;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PostFactory extends Factory
@@ -25,6 +26,7 @@ class PostFactory extends Factory
         return [
             'category' => Arr::random(['Technology', 'Society', 'Health', 'Science']),
             'title' => $this->faker->realText(30, 2),
+            'slug' => Str::of($this->faker->realText(30, 2))->slug('-'),
             'body' => $this->faker->realText(2000, 5),
         ];
     }

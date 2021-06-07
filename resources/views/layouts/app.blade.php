@@ -4,9 +4,26 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link rel="icon" href="{{ asset('img/logo/Icon_logo.png') }}">
-        
+        <link rel="icon" href="{{ asset('img/icon/icon.png') }}">
+
+        <!-- Primary Meta Tags -->
         <title>{{ env('APP_NAME', 'Yowndrift')}}</title>
+        <meta name="title" content="Yowndrift — Built for Bloggers">
+        <meta name="description" content="Read interesting topics and share your ideas to everyone.">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://yowndrift.herokuapp.com/">
+        <meta property="og:title" content="Yowndrift — Built for Bloggers">
+        <meta property="og:description" content="Read interesting topics and share your ideas to everyone.">
+        <meta property="og:image" content="{{ asset('img/yowndrift_landing.jpeg') }}">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://yowndrift.herokuapp.com/">
+        <meta property="twitter:title" content="Yowndrift — Built for Bloggers">
+        <meta property="twitter:description" content="Read interesting topics and share your ideas to everyone.">
+        <meta property="twitter:image" content="{{ asset('img/yowndrift_landing.jpeg') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
