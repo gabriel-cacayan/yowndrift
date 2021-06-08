@@ -16,14 +16,14 @@
         <meta property="og:url" content="https://yowndrift.herokuapp.com/">
         <meta property="og:title" content="Yowndrift — Built for Bloggers">
         <meta property="og:description" content="Read interesting topics and share your ideas to everyone.">
-        <meta property="og:image" content="{{ asset('img/yowndrift_landing.jpeg') }}">
+        <meta property="og:image" content="{{ asset('img/yowndrift_landing.png') }}">
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image">
         <meta property="twitter:url" content="https://yowndrift.herokuapp.com/">
         <meta property="twitter:title" content="Yowndrift — Built for Bloggers">
         <meta property="twitter:description" content="Read interesting topics and share your ideas to everyone.">
-        <meta property="twitter:image" content="{{ asset('img/yowndrift_landing.jpeg') }}">
+        <meta property="twitter:image" content="{{ asset('img/yowndrift_landing.png') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
