@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Post;
 
 use Livewire\Component;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 class SearchPost extends Component
@@ -25,11 +26,10 @@ class SearchPost extends Component
 
     public function updatedSearch()
     {
-        // dd(strtoupper(substr($this->search, 0, 1)) . strtolower(substr($this->search, 1)));
 
         $this->posts = DB::table('users')
             ->join('posts', 'users.id', '=', 'posts.user_id')
-            ->where('users.name', 'like', '%' . strtoupper(substr($this->search, 0, 1)) . strtolower(substr($this->search, 1)) . '%')
+            ->where('users.name', 'like', '%' . Str::of($this->search)->title()  . '%')
             ->orWhere('posts.title', 'like', '%' . $this->search . '%')
             ->get();
     }

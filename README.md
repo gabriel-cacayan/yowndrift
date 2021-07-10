@@ -8,13 +8,14 @@
 
 # To clone, run the following command in CLI: 
 
-* `git clone https://github.com/GabrielCode-Full/yowndrift.git`
+* `git clone git@github.com:gabriel-cacayan/yowndrift.git`
 * `cd yowndrift`
 * `composer update`
 * `composer require laravel/socialite`
 * `npm install && npm run dev`
-* Uncomment this code `URL::forceScheme('https');` in `Providers` > `AppServiceProvider.php` folder.
-* Create .env file.
+* Create an `.env` file then copy all the code from `.env.example`.
+* run `php artisan key:generate`
 * add database to `.env` file
 * `php artisan migrate --seed`
+* Uncomment this code `URL::forceScheme('https');` in `Providers` > `AppServiceProvider.php` folder.
 * `php artisan serve`

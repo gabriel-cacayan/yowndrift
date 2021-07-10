@@ -11,6 +11,25 @@ use Illuminate\Support\Facades\Auth;
 class Dashboard extends Component
 {
 
+    public $sortBy = 'created_at';
+    public $sortDirection = 'asc';
+
+
+    public function sortBy($field)
+    {
+        $this->sortDirection = $this->sortBy === $field
+            ? $this->reverseSort()
+            : 'asc';
+
+        $this->sortBy = $field;
+    }
+
+    public function reverseSort()
+    {
+        return $this->sortDirection === 'asc'
+            ? 'desc'
+            : 'asc';
+    }
 
     public function deletePost(Request $request, $post_id)
     {
@@ -27,7 +46,7 @@ class Dashboard extends Component
             'posts' => DB::table('users')
                 ->join('posts', 'users.id', '=', 'posts.user_id')
                 ->where('users.id', 'like', '%' . Auth::id() . '%')
-                ->orderBy('posts.created_at', 'desc')
+                ->orderBy('posts.' . $this->sortBy, $this->sortDirection)
                 ->get(),
         ]);
     }

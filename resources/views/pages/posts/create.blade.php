@@ -16,11 +16,12 @@
                 <div class="mt-4">
                     <x-jet-label for="category" value="{{ __('Category') }}" />
                     <select type="select" name="category" class="block w-full mt-1 border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                        <option>Choose a category</option>
-                        <option value="Technology">Technology</option>
-                        <option value="Science">Science</option>
-                        <option value="Health">Health</option>
-                        <option value="Society">Society</option>
+                        <optgroup label="Choose a category">
+                            <option value="Technology">Technology</option>
+                            <option value="Science">Science</option>
+                            <option value="Health">Health</option>
+                            <option value="Society">Society</option>
+                          </optgroup>
                       </select>
                     <x-jet-input-error for="category" class="mt-2" />
                 </div>

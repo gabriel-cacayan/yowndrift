@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <h1 class="font-bold font-ibm text-2xl mb-5">Verify your Email</h1>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">

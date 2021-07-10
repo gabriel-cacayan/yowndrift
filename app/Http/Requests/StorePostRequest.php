@@ -24,7 +24,7 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'category' => ['required', 'in:Technology,Science,Health,Society'],
+            'category' => ['required'],
             'title' => ['required', 'unique:posts,title', 'string', 'min:5'],
             'body' => ['required', 'string', 'min:50'],
         ];

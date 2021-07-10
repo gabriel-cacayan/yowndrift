@@ -8,6 +8,7 @@ use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\PostController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\SocialiteController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 
 // Facebook
@@ -32,7 +33,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('/user/dashboard', Dashboard::class)->name('user.dashboard');
 
-    Route::resource('/posts', PostController::class)->except(['index', 'show']);
+    Route::get('/posts/{post:slug}/edit', [PostController::class, 'edit'])->name('posts.edit');
+
+    Route::resource('/posts', PostController::class)->except(['index', 'show', 'edit']);
 });
 
 Route::get('/user/{user:username}', [UserController::class, 'show'])->name('user.show');
@@ -40,3 +43,9 @@ Route::get('/user/{user:username}', [UserController::class, 'show'])->name('user
 Route::get('/posts', Index::class)->name('posts.index');
 
 Route::get('/posts/{post:slug}', Show::class)->name('posts.show');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/');
+})->middleware(['auth'])->name('verification.verify');

@@ -17,7 +17,7 @@
         <div class="max-h-72 overflow-auto divide-y divide-gray-200">
             @if (!empty($search))
             @forelse ($posts as $post)
-                <a href="{{ route('posts.show', $post->id) }}" class="flex flex-col list-item list-none py-2 hover:bg-gray-100">
+                <a href="{{ route('posts.show', $post->slug) }}" class="flex flex-col list-item list-none py-2 hover:bg-gray-100">
                     <p class="mb-2 text-cyan-500">{{ $post->title }}</p>
                     <p class="text-md text-gray-600 flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5 mr-1">

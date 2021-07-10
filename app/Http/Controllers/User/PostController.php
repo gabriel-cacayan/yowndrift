@@ -6,8 +6,10 @@ use App\Models\Post;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
@@ -55,9 +57,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        $post = Post::find($id);
+        $post = DB::table('users')
+            ->join('posts', 'users.id', '=', 'posts.user_id')
+            ->where('posts.id', '=', $post->id)
+            ->first();
 
         return view('pages.posts.edit', ['post' => $post]);
     }
@@ -69,25 +74,29 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
         $request->validate([
-            'category' => ['required', 'in:Technology,Science,Health,Society'],
-            'title' => ['required', 'string', 'min:5', Rule::unique('posts')->ignore($id)],
+            'category' => ['required'],
+            'title' => ['required', 'string', 'min:5', Rule::unique('posts')->ignore($post->id)],
             'body' => ['required', 'string', 'min:50'],
         ]);
 
-        $post = Post::find($id);
-        $post->user_id = Auth::id();
-        $post->category = $request->input('category');
-        $post->title = $request->input('title');
-        $post->slug = Str::of($request->input('title'))->slug('-');
-        $post->body = $request->input('body');
-        $post->save();
+        if (!Gate::allows('update-post', $post)) {
+            abort(403);
+        } else {
+            $post = Post::find($post->id);
+            $post->user_id = Auth::id();
+            $post->category = $request->input('category');
+            $post->title = $request->input('title');
+            $post->slug = Str::of($request->input('title'))->slug('-');
+            $post->body = $request->input('body');
+            $post->save();
 
-        $request->session()->flash('flash.banner', 'Your post has been updated');
-        $request->session()->flash('flash.bannerStyle', 'success');
+            $request->session()->flash('flash.banner', 'Your post has been updated');
+            $request->session()->flash('flash.bannerStyle', 'success');
 
-        return redirect('/user/dashboard');
+            return redirect('/user/dashboard');
+        }
     }
 }

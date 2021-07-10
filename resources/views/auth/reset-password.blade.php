@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <h1 class="font-bold font-ibm text-2xl mb-5">Reset your password</h1>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -11,16 +11,16 @@
 
             <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
-            <div class="block">
-                <input id="email" class="w-full placeholder-cyan-500 mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-300" type="email" name="email" :value="old('email', $request->email)" placeholder="Email" required autofocus />
+            <div>
+                <x-jet-input id="email" type="email" name="email" :value="old('email')" placeholder="Email" required autofocus class="mt-1 w-full" />
             </div>
 
             <div class="mt-4">
-                <input id="password" class="w-full placeholder-cyan-500 mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-300" type="password" name="password" placeholder="Password" required autocomplete="new-password" />
+                <x-jet-input id="password" type="password" name="password" placeholder="Password" required autocomplete="new-password" class="mt-1 w-full"/>
             </div>
 
             <div class="mt-4">
-                <input id="password_confirmation" class="w-full placeholder-cyan-500 mt-1 block px-0.5 border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-cyan-300" type="password" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password" />
+                <x-jet-input id="password_confirmation" type="password" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password" class="mt-1 w-full" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
